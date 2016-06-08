@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import NotesReducer from './reducer_notes';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  toDoItems: ToDoReducer
 });
 
 export default rootReducer;
