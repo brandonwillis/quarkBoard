@@ -1,9 +1,3 @@
-# Logs
-logs
-*.log
-
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-**/build
-
-# Dependency directory
 **/node_modules
+**/config.js
+**/bundle.js
