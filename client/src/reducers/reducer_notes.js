@@ -1,6 +1,6 @@
 import { NOTES_FETCH, NOTES_ADD } from '../actions/index';
 
-const INITIAL_STATE = { all: ['hi','test','123'], post: null };
+const INITIAL_STATE = { all: [{title: 'testing', date: '2/29/1990', id: '001', body: 'helloasdfal'}], post: null };
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {

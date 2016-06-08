@@ -16,7 +16,7 @@ export function notesFetch() {
 }
 
 export function noteAdd(props) {
-  const request = axios.post();
+  const request = axios.post('/noteAdd', props);
 
   return {
     type: NOTE_ADD,

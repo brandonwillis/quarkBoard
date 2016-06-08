@@ -10,7 +10,7 @@ const userSchema = new Schema({
     {
         title: {type: String, required: true},
         date: {type: Date, default: Date.now},
-        body: {type: String, required: true}
+        content: {type: String, required: true}
     }
   ]
 });
