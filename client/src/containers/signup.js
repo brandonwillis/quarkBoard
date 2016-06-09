@@ -10,7 +10,7 @@ class SignUp extends Component {
 
   onSubmit(props) {
     console.log("Sign Up props: ", props)
-    this.props.signUp(props);
+    this.props.signUp({props.username, props.email, props.password});
   }
 
   render() {
