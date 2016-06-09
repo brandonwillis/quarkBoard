@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { notesFetch } from '../actions/index';
 
 class NotesIndex extends Component {
-  // componentWillMount() {
-  //   this.props.notesFetch();
-  // }
+  componentWillMount() {
+    if(this.props.uid !== null){
+      this.props.notesFetch(this.props.uid);
+    }
+  }
 
   renderNotes() {
     return this.props.notes.map((note) => {
@@ -22,6 +24,11 @@ class NotesIndex extends Component {
   }
 
   render() {
+    const { notes } = this.props;
+    if(!notes) {
+      console.log("This is notes props: ", this.props.uid)
+      return <div>Loading...</div>
+    }
     return (
       <div>
         <h3>Notes</h3>
@@ -34,8 +41,8 @@ class NotesIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log("Notes state is :", state)
-  return { notes: state.notes.all };
+  console.log("Notes state is :", state)
+  return { notes: state.notes.all, uid: state.auth.uid };
 }
 
 export default connect(mapStateToProps, { notesFetch })(NotesIndex)

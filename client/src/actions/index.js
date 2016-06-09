@@ -10,9 +10,10 @@ const ROOT_URL = 'http://localhost:8200';
 //Authentication Action Creators
 export function signIn(props) {
   return function(dispatch) {
+    console.log("This is signin props: ", props);
     axios.post(`${ROOT_URL}/signin`, props)
       .then(response => {
-        dispatch({ type: AUTH_USER });
+        dispatch({ type: AUTH_USER, payload: response.data.uid });
         localStorage.setItem('token', response.data.token);
         browserHistory.push('/dashboard');
       })
@@ -38,12 +39,14 @@ export function signOut(){
 }
 
 //Notes Action Creators
-export function notesFetch() {
-  const request = axios.get();
-
-  return {
-    type: NOTES_FETCH,
-    payload: request
+export function notesFetch(uid) {
+  const userId = { uid: uid };
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/notes`, userId)
+      .then(response => {
+        console.log("notesFetch response: ", response.data.notes);
+        dispatch({ type: NOTES_FETCH, payload: response.data.notes})
+      })
   }
 }
 

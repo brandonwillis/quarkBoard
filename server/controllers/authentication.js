@@ -10,8 +10,13 @@ function tokenForUser(user) {
 exports.signin = function(req, res, next) {
   //User has already had their username and password auth'd
   //We just need to give them a token
+  const username = req.body.username;
   console.log("Signin request received: ", req.body);
-  res.send({ token: tokenForUser(req.user)} );
+  User.findOne({ username: username}, function(err, result) {
+    if(err) { return next(err); }
+    console.log("Find one result: ", result);
+    res.send({ token: tokenForUser(req.user), uid: result._id });
+  })
 }
 
 exports.signup = function(req, res, next) {

@@ -9,7 +9,6 @@ class SignIn extends Component {
   }
 
   onSubmit(props) {
-    console.log("these are my props", props);
     this.props.signIn(props);
   }
 
@@ -53,8 +52,13 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps(state) {
+  console.log("SignIn state: ", state);
+  return { uid: state.auth.uid }
+}
+
 export default reduxForm({
   form: 'SignInForm',
   fields: ['username','password'],
   validate
-}, null, { signIn })(SignIn)
+}, mapStateToProps, { signIn })(SignIn)

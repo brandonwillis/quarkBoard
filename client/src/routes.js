@@ -10,7 +10,6 @@ import SignUp from './containers/authentication/signup';
 export default (
   <Route name="app" path="/" component={App}>
     <IndexRoute component={SignIn} />
-    <Route name="signin" path="signin" component={SignIn} />
     <Route name="signup" path="signup" component={SignUp} />
     <Route name="dashboard" path="dashboard" component={requireAuth(Dashboard)} />
   </Route>

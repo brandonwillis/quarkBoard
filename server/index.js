@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:auth/auth');
   //creates a new database called auth
 
 //App Setup
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 app.use(bodyParser.json({ type: '*/*' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
