@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { signIn } from '../actions/index';
+import { signIn } from '../../actions/index';
 import { Link } from 'react-router';
 
 class SignIn extends Component {
@@ -34,7 +34,7 @@ class SignIn extends Component {
           </div>
         </div>
         <button type="submit" className="btn btn-primary">Sign In</button>
-        <Link to="/signup" className="btn btn-danger">Sign Up</Link>
+        <Link to="signup" className="btn btn-danger">Sign Up</Link>
       </form>
     )
   };

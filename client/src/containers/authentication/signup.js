@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { signUp } from '../actions/index';
+import { signUp } from '../../actions/index';
 import { Link } from 'react-router';
 
 class SignUp extends Component {
@@ -10,14 +10,14 @@ class SignUp extends Component {
 
   onSubmit(props) {
     console.log("Sign Up props: ", props)
-    this.props.signUp({props.username, props.email, props.password});
+    this.props.signUp(props);
   }
 
   render() {
-    const { fields: { username, email, password, confirmPassword}, handleSubmit } = this.props
+    const { fields: { username, email, password, confirmPassword}, handleSubmit } = this.props;
 
     return (
-      <form onSubmit={this.onSubmit.bind(this)}>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h3>Sign Up</h3>
         <div className={`form-group ${username.touched && username.invalid ? "has-danger" : '' }`}>
           <label>Username</label>
@@ -47,8 +47,8 @@ class SignUp extends Component {
             {confirmPassword.touched ? confirmPassword.error : ""}
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">Sign In</button>
-        <Link to="/signup" className="btn btn-danger">Sign Up</Link>
+        <Link to="/" className="btn btn-danger">Sign In</Link>
+        <button type="submit" className="btn btn-primary">Sign Up</button>
       </form>
     )
   };

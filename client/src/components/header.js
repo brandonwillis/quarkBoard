@@ -6,7 +6,7 @@ import * as actions from '../actions/index';
 class Header extends Component {
   authButton(){
     if (this.props.auth.isAuth) {
-      return <Link to="/" className="btn btn-primary" onClick={() => this.props.signOutUser()}>Sign Out</Link>
+      return <Link to="/" className="btn btn-primary" onClick={() => this.props.signOut()}>Sign Out</Link>
     }
     return <Link to="/" className="btn btn-primary">Sign In</Link>;
   }

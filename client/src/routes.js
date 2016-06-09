@@ -4,8 +4,8 @@ import App from './components/app';
 
 import Dashboard from './components/dashboard';
 import requireAuth from './components/hoc/require_auth';
-import SignIn from './containers/signin';
-import SignUp from './containers/signup';
+import SignIn from './containers/authentication/signin';
+import SignUp from './containers/authentication/signup';
 
 export default (
   <Route name="app" path="/" component={App}>
