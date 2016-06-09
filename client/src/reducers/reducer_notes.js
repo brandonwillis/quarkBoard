@@ -1,4 +1,4 @@
-import { NOTES_FETCH, NOTES_ADD } from '../actions/index';
+import { NOTES_FETCH, NOTES_ADD } from '../actions/types';
 
 const INITIAL_STATE = { all: [{title: 'testing', date: '2/29/1990', id: '001', body: 'helloasdfal'}], post: null };
 

@@ -8,8 +8,6 @@ class NotesIndex extends Component {
   // }
 
   renderNotes() {
-    console.log(this.props.notes);
-
     return this.props.notes.map((note) => {
       return (
         <li className="list-group-item" key={note.id}>
@@ -36,7 +34,7 @@ class NotesIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("Notes state is :", state)
+  // console.log("Notes state is :", state)
   return { notes: state.notes.all };
 }
 
