@@ -13,19 +13,14 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-light">
-        <ul className="nav navbar-nav">
-          <li className="nav-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li className="nav-item">
+        <div className="page-header headerStyle">
+          <h1>
+            QuarkBoard
+          </h1>
+          <div className="authButton">
             {this.authButton()}
-          </li>
-        </ul>
-      </nav>
+          </div>
+        </div>
     )
   }
 }
