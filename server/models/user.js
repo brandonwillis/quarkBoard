@@ -9,6 +9,7 @@ const userSchema = new Schema({
   password: String,
   notes: [
     {
+        id: {type: String, required: true},
         title: {type: String, required: true},
         date: {type: Date, default: Date.now},
         content: {type: String, required: true}

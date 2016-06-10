@@ -10,8 +10,10 @@ import promise from 'redux-promise';
 
 const createStoreWithMiddleware = applyMiddleware(promise, reduxThunk)(createStore);
 
+export const store = createStoreWithMiddleware(reducers);
+
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <Router history={browserHistory} routes={routes} />
   </Provider>
   , document.querySelector('.container'));

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { notesFetch } from '../../actions/index';
+import { notesFetch, noteFetch } from '../../actions/index';
+import { Link } from 'react-router';
 
 function dateConverter(date) {
   const newDate = date.slice(0, 10)
   const year = newDate.slice(0,4);
   const month = newDate.slice(5,7);
   const day = newDate.slice(9,10);
-  console.log(`${month}/${day}/${year}`);
   return `${month}/${day}/${year}`;
 }
 
@@ -19,40 +19,42 @@ class NotesIndex extends Component {
     }
   }
 
+  fetchThisNote(note) {
+    this.props.noteFetch(note)
+  }
+
   renderNotes() {
     return this.props.notes.map((note) => {
-
       return (
         <li className="list-group-item" key={note.id}>
+        <Link to={"note/:" + note.id} onClick={this.fetchThisNote(note)}>
           <div>
             <span className="pull-xs-right">{dateConverter(note.date)}</span>
             <h3>{note.title}</h3>
           </div>
+        </Link>
         </li>
       );
     });
   }
 
   render() {
-    const { notes } = this.props;
-    if(!notes) {
-      console.log("This is notes props: ", this.props.uid)
-      return <div>Loading...</div>
-    }
     return (
       <div>
-        <h3>Notes</h3>
-        <ul className="list-group">
-          {this.renderNotes()}
-        </ul>
+        <div className="text-xs-right">
+          <button className="btn btn-primary">+</button>
+        </div>
+          <h3>Notepad</h3>
+          <ul className="list-group">
+            {this.renderNotes()}
+          </ul>
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log("Notes state is :", state)
   return { notes: state.notes.all, uid: state.auth.uid };
 }
 
-export default connect(mapStateToProps, { notesFetch })(NotesIndex)
+export default connect(mapStateToProps, { notesFetch, noteFetch })(NotesIndex)

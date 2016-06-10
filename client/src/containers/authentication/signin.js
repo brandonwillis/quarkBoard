@@ -53,7 +53,6 @@ function validate(values) {
 }
 
 function mapStateToProps(state) {
-  console.log("SignIn state: ", state);
   return { uid: state.auth.uid }
 }
 
