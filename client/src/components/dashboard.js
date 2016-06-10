@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Notes from '../containers/notes';
+import Notes from '../containers/notes/notes';
 import Clock from './clock';
 
 export default class Dashboard extends Component {
