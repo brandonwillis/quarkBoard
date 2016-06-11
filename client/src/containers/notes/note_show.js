@@ -8,12 +8,11 @@ class NoteShow extends Component {
   static contextTypes = {
     router: PropTypes.object
   };
-  test() {
-  }
 
-  deleteNote(item) {
-    // console.log(item);
-      this.props.noteDelete(this.props.auth.uid, this.props.note.id);
+  deleteNote() {
+    const uid = this.props.auth.uid;
+    const nid = this.props.note.id;
+    this.props.noteDelete({ uid, nid });
   }
 
   render() {
@@ -22,7 +21,7 @@ class NoteShow extends Component {
     if(!note) {
       return <div>Loading...</div>
     }
-
+    console.log( "this is my note :", note)
     return (
       <div>
       <Link to="/dashboard">Back To Dashboard</Link>
@@ -33,7 +32,7 @@ class NoteShow extends Component {
       </button>
         <h3>{note.title}</h3>
         <h6>{note.date}</h6>
-        <p>{note.body}</p>
+        <p>{note.content}</p>
       </div>
     )
   };

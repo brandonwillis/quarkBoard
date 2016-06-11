@@ -47,7 +47,7 @@ class SignUp extends Component {
             {confirmPassword.touched ? confirmPassword.error : ""}
           </div>
         </div>
-        <Link to="/" className="btn btn-danger">Sign In</Link>
+        <Link to="/" className="btn btn-danger">Cancel</Link>
         <button type="submit" className="btn btn-primary">Sign Up</button>
       </form>
     )

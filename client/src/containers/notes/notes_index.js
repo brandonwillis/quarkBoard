@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { notesFetch, noteFetch } from '../../actions/index';
 import { Link } from 'react-router';
+import { dateConverter } from '../../helpers/helperfunctions';
 
-function dateConverter(date) {
-  const newDate = date.slice(0, 10)
-  const year = newDate.slice(0,4);
-  const month = newDate.slice(5,7);
-  const day = newDate.slice(9,10);
-  return `${month}/${day}/${year}`;
-}
 
 class NotesIndex extends Component {
-
   componentWillMount() {
     if(this.props.uid !== null){
       this.props.notesFetch(this.props.uid);
@@ -20,14 +13,14 @@ class NotesIndex extends Component {
   }
 
   fetchThisNote(note) {
-    this.props.noteFetch(note)
+    this.props.noteFetch(note);
   }
 
   renderNotes() {
     return this.props.notes.map((note) => {
       return (
         <li className="list-group-item" key={note.id}>
-        <Link to={"note/:" + note.id} onClick={this.fetchThisNote(note)}>
+        <Link to={"note/:" + note.id} onClick={this.fetchThisNote.bind(this, note)}>
           <div>
             <span className="pull-xs-right">{dateConverter(note.date)}</span>
             <h3>{note.title}</h3>
@@ -42,7 +35,7 @@ class NotesIndex extends Component {
     return (
       <div>
         <div className="text-xs-right">
-          <button className="btn btn-primary">+</button>
+          <Link to="note/add" className="btn btn-primary">+</Link>
         </div>
           <h3>Notepad</h3>
           <ul className="list-group">
@@ -57,4 +50,4 @@ function mapStateToProps(state) {
   return { notes: state.notes.all, uid: state.auth.uid };
 }
 
-export default connect(mapStateToProps, { notesFetch, noteFetch })(NotesIndex)
+export default connect(mapStateToProps, { notesFetch, noteFetch} )(NotesIndex)

@@ -49,11 +49,12 @@ export function notesFetch(uid) {
 }
 
 export function noteAdd(props) {
-  const request = axios.post('/noteAdd', props);
+  console.log("Note add action creator props :", props);
+  // const request = axios.post('/noteAdd', props);
 
   return {
     type: NOTE_ADD,
-    payload: request
+    // payload: request
   }
 }
 
@@ -65,9 +66,8 @@ export function noteFetch(note) {
   }
 }
 
-export function noteDelete(uid, nid) {
-  console.log("Action reducer: deleting this note: ", uid)
-  const notePackage = { uid: uid, nid: nid };
+export function noteDelete(notePackage) {
+  console.log("Action reducer: deleting this note: ", notePackage);
 
   return function(dispatch) {
     axios.post(`${ROOT_URL}/noteDelete`, notePackage)
