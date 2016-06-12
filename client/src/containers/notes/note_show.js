@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { noteDelete } from '../../actions/index';
 import { Link } from 'react-router';
-
+import { dateConverter } from '../../helpers/helperfunctions';
 
 class NoteShow extends Component {
   static contextTypes = {
@@ -11,7 +11,7 @@ class NoteShow extends Component {
 
   deleteNote() {
     const uid = this.props.auth.uid;
-    const nid = this.props.note.id;
+    const nid = this.props.note._id;
     this.props.noteDelete({ uid, nid });
   }
 
@@ -31,7 +31,7 @@ class NoteShow extends Component {
           Delete Post
       </button>
         <h3>{note.title}</h3>
-        <h6>{note.date}</h6>
+        <h6>{dateConverter(note.date)}</h6>
         <p>{note.content}</p>
       </div>
     )

@@ -1,20 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt-nodejs');
+const Notes = require('./note');
 
 //Define our model
 const userSchema = new Schema({
   username: { type: String, unique: true, lowercase: true },
   email: { type: String, lowercase: true },
   password: String,
-  notes: [
-    {
-        id: {type: String, required: true},
-        title: {type: String, required: true},
-        date: {type: Date, default: Date.now},
-        content: {type: String, required: true}
-    }
-  ]
+  notes: [{type: Schema.ObjectId, ref: Notes }]
 });
 
 //On Save Hook, encrypt password

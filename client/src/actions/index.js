@@ -3,7 +3,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 
 //Type Constants Imports
-import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD , NOTE_SELECTED, NOTE_DELETE } from './types';
+import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE } from './types';
 
 const ROOT_URL = 'http://localhost:8200';
 
@@ -50,16 +50,16 @@ export function notesFetch(uid) {
 
 export function noteAdd(props) {
   console.log("Note add action creator props :", props);
-  // const request = axios.post('/noteAdd', props);
-
-  return {
-    type: NOTE_ADD,
-    // payload: request
-  }
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/noteAdd`, props)
+      .then(response => {
+        dispatch({ type: NOTE_ADD });
+        browserHistory.push('/dashboard')
+      })
+    }
 }
 
 export function noteFetch(note) {
-  // console.log("Action reducer: Fetch this note: ", note)
   return {
     type: NOTE_SELECTED,
     payload: note
@@ -67,14 +67,12 @@ export function noteFetch(note) {
 }
 
 export function noteDelete(notePackage) {
-  console.log("Action reducer: deleting this note: ", notePackage);
-
   return function(dispatch) {
     axios.post(`${ROOT_URL}/noteDelete`, notePackage)
       .then(response => {
         console.log("receiving this response: ", response)
-        dispatch({ type: NOTES_FETCH, payload: response.data.notes });
-        browserHistory.push('/dashboard')
+        dispatch({ type: NOTE_DELETE });
+        browserHistory.push('/dashboard');
       })
   }
 }

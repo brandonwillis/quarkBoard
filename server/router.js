@@ -15,5 +15,6 @@ module.exports = function(app){
   app.post('/signup', Authentication.signup);
 
   app.post('/notes', Notes.fetchNotes);
-  app.post('/noteDelete', Notes.deleteNote)
+  app.post('/noteDelete', Notes.deleteNote);
+  app.post('/noteAdd', Notes.addNote);
 }

@@ -8,6 +8,7 @@ import { dateConverter } from '../../helpers/helperfunctions';
 class NotesIndex extends Component {
   componentWillMount() {
     if(this.props.uid !== null){
+      console.log("This props uid: ", this.props.uid);
       this.props.notesFetch(this.props.uid);
     }
   }
@@ -15,12 +16,21 @@ class NotesIndex extends Component {
   fetchThisNote(note) {
     this.props.noteFetch(note);
   }
+  //
+  // checkGeo(){
+  //   if (navigator.geolocation) {
+  //     console.log('Geolocation is supported!');
+  //   }
+  //   else {
+  //     console.log('Geolocation is not supported for this Browser/OS version yet.');
+  //   }
+  // }
 
   renderNotes() {
     return this.props.notes.map((note) => {
       return (
-        <li className="list-group-item" key={note.id}>
-        <Link to={"note/:" + note.id} onClick={this.fetchThisNote.bind(this, note)}>
+        <li className="list-group-item" key={note._id}>
+        <Link to={"note/:" + note._id} onClick={this.fetchThisNote.bind(this, note)}>
           <div>
             <span className="pull-xs-right">{dateConverter(note.date)}</span>
             <h3>{note.title}</h3>
