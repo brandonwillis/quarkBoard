@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Notes from '../containers/notes/notes_index';
 import Clock from './clock';
 import Modal from './modal';
+import Weather from '../containers/weather';
 export default class Dashboard extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ export default class Dashboard extends Component {
           <Clock />
         </Modal>*/}
         <Notes />
+        <Weather />
       </div>
     );
   }

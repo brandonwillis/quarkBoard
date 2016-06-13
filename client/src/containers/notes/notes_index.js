@@ -60,4 +60,4 @@ function mapStateToProps(state) {
   return { notes: state.notes.all, uid: state.auth.uid };
 }
 
-export default connect(mapStateToProps, { notesFetch, noteFetch} )(NotesIndex)
+export default connect(mapStateToProps, { notesFetch, noteFetch } )(NotesIndex)
