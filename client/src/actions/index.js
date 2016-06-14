@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import { weatherAPIKEY } from '../../config.js';
 
 //Type Constants Imports
-import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE, WEATHER_FETCH, GOALS_FETCH, GOAL_ADD, GOAL_DELETE } from './types';
+import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE, WEATHER_FETCH, GOALS_FETCH, GOAL_SHOWTOGGLE, GOAL_DELETE } from './types';
 
 const ROOT_URL = 'http://localhost:8200';
 const WEATHER_URL = `http://api.openweathermap.org/data/2.5/weather?appid=${weatherAPIKEY}`;
@@ -109,6 +109,7 @@ export function goalsFetch(uid) {
 
 export function goalAdd(goal) {
   return function(dispatch) {
+    dispatch({ type: GOAL_SHOWTOGGLE, payload: "today"})
     axios.post(`${ROOT_URL}/goalAdd`, goal)
     .then(response => {
       dispatch({ type: GOALS_FETCH, payload: response.data.goals });
@@ -122,5 +123,12 @@ export function goalDelete(goalPackage) {
     .then(response => {
       dispatch({ type: GOALS_FETCH, payload: response.data.goals });
     })
+  }
+}
+
+export function goalToggle(type) {
+  return {
+    type: GOAL_SHOWTOGGLE,
+    payload: type
   }
 }

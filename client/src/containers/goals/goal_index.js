@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { goalsFetch, goalDelete } from '../../actions/index';
+import { goalsFetch, goalDelete, goalToggle } from '../../actions/index';
 import GoalAdd from './goal_add';
 
 class GoalIndex extends Component {
@@ -10,53 +10,53 @@ class GoalIndex extends Component {
     }
   }
 
+  toggleComp(type) {
+    this.props.goalToggle(type);
+  }
+
   deleteGoal(goalId) {
     const uid = this.props.uid;
     const gid = goalId;
     this.props.goalDelete({ uid, gid });
   }
 
-  renderGoals() {
-    return this.props.goals.map((goal) => {
-      return (
-        <li className="list-group-item" key={goal._id}>
-          <div>
-            <button className="btn btn-danger pull-xs-right"
-            onClick={this.deleteGoal.bind(this, goal._id)}>
-            X
-            </button>
-            <span>{goal.dueDate}</span>
-            <h3>{goal.goal}</h3>
-          </div>
-        </li>
-      );
-    });
+  renderGoals(type) {
+    console.log("render goal type: ", type)
+    return this.props.goals
+      .filter((goal) => goal.dueDate === type)
+        .map((goal) => {
+        return (
+          <li className="list-group-item" key={goal._id}>
+            <div>
+              <button className="btn btn-danger pull-xs-right"
+              onClick={this.deleteGoal.bind(this, goal._id)}>
+              X
+              </button>
+              <span>{goal.dueDate}</span>
+              <h3>{goal.goal}</h3>
+            </div>
+          </li>
+        );
+      });
   }
 
   render() {
     return (
       <div>
-        <div className="text-xs-right">
-          <button className="btn btn-primary">+</button>
-        </div>
-        <div>
-          <h1>Goal holder</h1>
-          <button className="btn btn-primary">Today</button>
-          <button className="btn btn-primary">This Week</button>
-        </div>
+        <button className="btn btn-primary" onClick={this.toggleComp.bind(this, "today")}>Today</button>
+        <button className="btn btn-primary" onClick={this.toggleComp.bind(this, "week")}>This Week</button>
         <div>
           <ul className="list-group">
-            {this.renderGoals()}
+            {this.renderGoals(this.props.show)}
           </ul>
         </div>
-        <GoalAdd />
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return { goals: state.goals.all , uid: state.auth.uid }
+  return { goals: state.goals.all , show: state.goals.show, uid: state.auth.uid }
 }
 
-export default connect(mapStateToProps, { goalsFetch, goalDelete })(GoalIndex)
+export default connect(mapStateToProps, { goalsFetch, goalToggle, goalDelete })(GoalIndex)

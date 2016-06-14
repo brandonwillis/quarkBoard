@@ -11,3 +11,4 @@ export const NOTE_DELETE = 'NOTE_DELETE';
 export const WEATHER_FETCH = 'WEATHER_FETCH';
 
 export const GOALS_FETCH = 'GOALS_FETCH';
+export const GOAL_SHOWTOGGLE = 'GOAL_SHOWTOGGLE';

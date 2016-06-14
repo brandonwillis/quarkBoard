@@ -3,7 +3,7 @@ import Notes from '../containers/notes/notes_index';
 import Clock from './clock';
 import Modal from './modal';
 import Weather from '../containers/weather';
-import Goal from '../containers/goals/goal_index';
+import GoalHeader from '../containers/goals/goal_header';
 
 export default class Dashboard extends Component {
   render() {
@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
         <Clock />
         <Notes />
         <Weather />
-        <Goal />
+        <GoalHeader />
       </div>
     );
   }
