@@ -21,7 +21,7 @@ class NoteShow extends Component {
     if(!note) {
       return <div>Loading...</div>
     }
-    console.log( "this is my note :", note)
+    
     return (
       <div>
       <Link to="/dashboard">Back To Dashboard</Link>

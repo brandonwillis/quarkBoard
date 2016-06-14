@@ -12,6 +12,7 @@ export default class Dashboard extends Component {
           <p>Etc.</p>
           <Clock />
         </Modal>*/}
+        <Clock />
         <Notes />
         <Weather />
       </div>

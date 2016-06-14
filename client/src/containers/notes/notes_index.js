@@ -16,15 +16,6 @@ class NotesIndex extends Component {
   fetchThisNote(note) {
     this.props.noteFetch(note);
   }
-  //
-  // checkGeo(){
-  //   if (navigator.geolocation) {
-  //     console.log('Geolocation is supported!');
-  //   }
-  //   else {
-  //     console.log('Geolocation is not supported for this Browser/OS version yet.');
-  //   }
-  // }
 
   renderNotes() {
     return this.props.notes.map((note) => {

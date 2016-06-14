@@ -8,6 +8,4 @@ export const NOTE_ADD = 'NOTE_ADD';
 export const NOTE_SELECTED = 'NOTE_SELECTED';
 export const NOTE_DELETE = 'NOTE_DELETE';
 
-export const GEO_FETCH = 'GEO_FETCH';
-export const GEO_RECEIVE = 'GEO_RECEIVE';
 export const WEATHER_FETCH = 'WEATHER_FETCH';

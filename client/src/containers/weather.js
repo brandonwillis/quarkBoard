@@ -1,37 +1,28 @@
 import React, { Component } from 'react';
 import { getGeolocation, fetchWeather } from '../actions/index';
 import { connect } from 'react-redux';
+import { tempConverter } from '../helpers/helperfunctions';
 
 class Weather extends Component {
-  componentDidUpdate(){
-    console.log("me: ", this.props)
-    this.props.fetchWeather(this.props.weather);
-  }
-
-  getGeo() {
-    this.props.getGeolocation();
+  weatherInfo(){
+    if (this.props.currWeather === null) {
+      return <button className="btn btn-primary" onClick={() => this.props.getGeolocation()}>Get Weather</button>
+    }
+    return <div>{tempConverter(this.props.currWeather.temp)}</div>
   }
 
   render(){
-    console.log("Weather props: ", this.props);
     return (
       <div>
-      Weather holder
-      <button
-      className="btn btn-danger pull-xs-right"
-      onClick={this.getGeo.bind(this)}>
-      Get Location
-      </button>
-        <h3></h3>
-        <h3></h3>
+        <h1>Weather holder</h1>
+        <div>{this.weatherInfo()}</div>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  console.log("weather state: ", state);
-  return { weather: state.weather.coords };
+  return { currWeather: state.weather.currWeather };
 }
 
 export default connect(mapStateToProps, { getGeolocation, fetchWeather })(Weather);
