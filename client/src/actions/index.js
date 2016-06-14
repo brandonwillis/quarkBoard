@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import { weatherAPIKEY } from '../../config.js';
 
 //Type Constants Imports
-import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE, WEATHER_FETCH } from './types';
+import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE, WEATHER_FETCH, GOALS_FETCH, GOAL_ADD, GOAL_DELETE } from './types';
 
 const ROOT_URL = 'http://localhost:8200';
 const WEATHER_URL = `http://api.openweathermap.org/data/2.5/weather?appid=${weatherAPIKEY}`;
@@ -50,12 +50,13 @@ export function notesFetch(uid) {
   }
 }
 
-export function noteAdd(props) {
-  console.log("Note add action creator props :", props);
+export function noteAdd(note) {
+  console.log("Note add action creator props :", note);
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/noteAdd`, props)
+    axios.post(`${ROOT_URL}/noteAdd`, note)
     .then(response => {
-      dispatch({ type: NOTE_ADD });
+      console.log(response.data.notes)
+      dispatch({ type: NOTES_FETCH, payload: response.data.notes });
       browserHistory.push('/dashboard')
     })
   }
@@ -70,10 +71,10 @@ export function noteFetch(note) {
 
 export function noteDelete(notePackage) {
   return function(dispatch) {
-    axios.delete(`${ROOT_URL}/noteDelete`, notePackage)
+    axios.post(`${ROOT_URL}/noteDelete`, notePackage)
     .then(response => {
       // console.log("receiving this response: ", response)
-      dispatch({ type: NOTE_DELETE });
+      dispatch({ type: NOTES_FETCH, payload: response.data.notes });
       browserHistory.push('/dashboard');
     })
   }
@@ -92,5 +93,34 @@ export function getGeolocation() {
         })
       });
     }
+  }
+}
+
+//Goal
+export function goalsFetch(uid) {
+  const userId = { uid: uid };
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/goals`, userId)
+    .then(response => {
+      dispatch({ type: GOALS_FETCH, payload: response.data.goals })
+    })
+  }
+}
+
+export function goalAdd(goal) {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/goalAdd`, goal)
+    .then(response => {
+      dispatch({ type: GOALS_FETCH, payload: response.data.goals });
+    })
+  }
+}
+
+export function goalDelete(goalPackage) {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/goalDelete`, goalPackage)
+    .then(response => {
+      dispatch({ type: GOALS_FETCH, payload: response.data.goals });
+    })
   }
 }

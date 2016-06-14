@@ -9,3 +9,5 @@ export const NOTE_SELECTED = 'NOTE_SELECTED';
 export const NOTE_DELETE = 'NOTE_DELETE';
 
 export const WEATHER_FETCH = 'WEATHER_FETCH';
+
+export const GOALS_FETCH = 'GOALS_FETCH';
