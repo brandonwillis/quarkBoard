@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'React';
 import { reduxForm } from 'redux-form';
-import { goalAdd } from '../../actions/index';
+import { goalAdd, goalToggle } from '../../actions/index';
 import { Link } from 'react-router';
 
 class GoalAdd extends Component {
@@ -16,8 +16,13 @@ class GoalAdd extends Component {
     this.props.goalAdd(formPackage);
   }
 
+  cancelGoal() {
+    this.props.goalToggle("today")
+  }
+
   render() {
     const { fields: { goal, dueDate}, handleSubmit } = this.props;
+
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h3>New Goal</h3>
@@ -40,7 +45,7 @@ class GoalAdd extends Component {
             </label>
           </div>
         </div>
-        <Link to="/dashboard" className="btn btn-danger">Cancel</Link>
+        <Link to="dashboard" className="btn btn-danger" onClick={this.cancelGoal.bind(this)}>Back To Goals</Link>
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     )
@@ -53,19 +58,15 @@ function validate(values) {
     errors.goal = "Don't forget a goal"
   }
 
-  // if(!values.dueDate) {
-  //   errors.dueDate = "You are missing dueDate"
-  // }
-
   return errors;
 }
 
 function mapStateToProps(state) {
-  return { uid: state.auth.uid };
+  return { uid: state.auth.uid, display: state.goals.display };
 }
 
 export default reduxForm({
   form: 'GoalAdd',
   fields: ['goal', 'dueDate'],
   validate
-}, mapStateToProps, { goalAdd })(GoalAdd)
+}, mapStateToProps, { goalAdd, goalToggle })(GoalAdd)

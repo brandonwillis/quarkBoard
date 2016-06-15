@@ -21,7 +21,6 @@ class GoalIndex extends Component {
   }
 
   renderGoals(type) {
-    console.log("render goal type: ", type)
     return this.props.goals
       .filter((goal) => goal.dueDate === type)
         .map((goal) => {
@@ -47,7 +46,7 @@ class GoalIndex extends Component {
         <button className="btn btn-primary" onClick={this.toggleComp.bind(this, "week")}>This Week</button>
         <div>
           <ul className="list-group">
-            {this.renderGoals(this.props.show)}
+            {this.renderGoals(this.props.display)}
           </ul>
         </div>
       </div>
@@ -56,7 +55,7 @@ class GoalIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  return { goals: state.goals.all , show: state.goals.show, uid: state.auth.uid }
+  return { goals: state.goals.all , display: state.goals.display, uid: state.auth.uid }
 }
 
 export default connect(mapStateToProps, { goalsFetch, goalToggle, goalDelete })(GoalIndex)

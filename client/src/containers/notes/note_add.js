@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'React';
 import { reduxForm } from 'redux-form';
-import { noteAdd } from '../../actions/index';
+import { noteAdd, noteToggle } from '../../actions/index';
 import { Link } from 'react-router';
 
 class NoteAdd extends Component {
@@ -15,29 +15,34 @@ class NoteAdd extends Component {
     this.props.noteAdd(formPackage);
   }
 
+  cancelNote() {
+    this.props.noteToggle("index");
+  }
+
   render() {
     const { fields: { title, content}, handleSubmit } = this.props;
-    return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <h3>New Note</h3>
-        <div className={`form-group ${title.touched && title.invalid ? "has-danger" : '' }`}>
-          <label>Title</label>
-          <input type="text" className="form-control" {...title} />
-          <div className="text-help">
-            {title.touched ? title.error : ""}
-          </div>
-        </div>
 
-        <div className={`form-group ${content.touched && content.invalid ? "has-danger" : '' }`}>
-          <label>Content</label>
-          <textarea type="text" className="form-control" {...content} />
-          <div className="text-help">
-            {content.touched ? content.error : ""}
+    return (
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <h3>New Note</h3>
+          <div className={`form-group ${title.touched && title.invalid ? "has-danger" : '' }`}>
+            <label>Title</label>
+            <input type="text" className="form-control" {...title} />
+            <div className="text-help">
+              {title.touched ? title.error : ""}
+            </div>
           </div>
-        </div>
-        <Link to="/dashboard" className="btn btn-danger">Cancel</Link>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+
+          <div className={`form-group ${content.touched && content.invalid ? "has-danger" : '' }`}>
+            <label>Content</label>
+            <textarea type="text" className="form-control" {...content} />
+            <div className="text-help">
+              {content.touched ? content.error : ""}
+            </div>
+          </div>
+          <Link to="dashboard" className="btn btn-danger" onClick={this.cancelNote.bind(this)}>Back To Notes</Link>
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
     )
   }
 }
@@ -63,4 +68,4 @@ export default reduxForm({
   form: 'NoteAdd',
   fields: ['title', 'content'],
   validate
-}, mapStateToProps, { noteAdd })(NoteAdd)
+}, mapStateToProps, { noteAdd, noteToggle })(NoteAdd)

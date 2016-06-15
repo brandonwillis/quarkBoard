@@ -4,29 +4,25 @@ import { notesFetch, noteFetch } from '../../actions/index';
 import { Link } from 'react-router';
 import { dateConverter } from '../../helpers/helperfunctions';
 
-
 class NotesIndex extends Component {
   componentWillMount() {
     if(this.props.uid !== null){
-      console.log("This props uid: ", this.props.uid);
       this.props.notesFetch(this.props.uid);
     }
   }
 
-  fetchThisNote(note) {
+  openThisNote(note) {
     this.props.noteFetch(note);
   }
 
   renderNotes() {
     return this.props.notes.map((note) => {
       return (
-        <li className="list-group-item" key={note._id}>
-        <Link to={"note/:" + note._id} onClick={this.fetchThisNote.bind(this, note)}>
+        <li className="list-group-item" key={note._id} onClick={this.openThisNote.bind(this, note)}>
           <div>
             <span className="pull-xs-right">{dateConverter(note.date)}</span>
             <h3>{note.title}</h3>
           </div>
-        </Link>
         </li>
       );
     });
@@ -35,13 +31,9 @@ class NotesIndex extends Component {
   render() {
     return (
       <div>
-        <div className="text-xs-right">
-          <Link to="note/add" className="btn btn-primary">+</Link>
-        </div>
-          <h3>Notepad</h3>
-          <ul className="list-group">
-            {this.renderNotes()}
-          </ul>
+        <ul className="list-group">
+          {this.renderNotes()}
+        </ul>
       </div>
     );
   }

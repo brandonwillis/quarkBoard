@@ -6,22 +6,21 @@ import GoalIndex from './goal_index';
 
 class GoalHeader extends Component {
   renderGoalComponents() {
-    if(this.props.show === "add" ) {
+    if(this.props.display === "add" ) {
       return <GoalAdd />
     }
     return <GoalIndex />
   }
 
-  showAdd(type) {
+  displayAdd(type) {
     this.props.goalToggle(type);
   }
 
   render() {
-    console.log("goal header props :", this.props)
     return (
       <div>
         <div className="text-xs-right">
-          <button className="btn btn-primary" onClick={this.showAdd.bind(this, "add")}>+</button>
+          <button className="btn btn-primary" onClick={this.displayAdd.bind(this, "add")}>+</button>
         </div>
         <div>
           <h1>My Goals</h1>
@@ -33,7 +32,7 @@ class GoalHeader extends Component {
 }
 
 function mapStateToProps(state) {
-  return { show: state.goals.show }
+  return { display: state.goals.display };
 }
 
 export default connect(mapStateToProps, { goalToggle })(GoalHeader)

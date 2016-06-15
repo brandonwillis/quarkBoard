@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import { weatherAPIKEY } from '../../config.js';
 
 //Type Constants Imports
-import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE, WEATHER_FETCH, GOALS_FETCH, GOAL_SHOWTOGGLE, GOAL_DELETE } from './types';
+import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE, NOTE_TOGGLE, WEATHER_FETCH, GOALS_FETCH, GOAL_TOGGLE, GOAL_DELETE, GOAL_ADD } from './types';
 
 const ROOT_URL = 'http://localhost:8200';
 const WEATHER_URL = `http://api.openweathermap.org/data/2.5/weather?appid=${weatherAPIKEY}`;
@@ -45,19 +45,7 @@ export function notesFetch(uid) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/notes`, userId)
     .then(response => {
-      dispatch({ type: NOTES_FETCH, payload: response.data.notes})
-    })
-  }
-}
-
-export function noteAdd(note) {
-  console.log("Note add action creator props :", note);
-  return function(dispatch) {
-    axios.post(`${ROOT_URL}/noteAdd`, note)
-    .then(response => {
-      console.log(response.data.notes)
-      dispatch({ type: NOTES_FETCH, payload: response.data.notes });
-      browserHistory.push('/dashboard')
+      dispatch({ type: NOTES_FETCH, payload: response.data.notes, display: "index"})
     })
   }
 }
@@ -65,7 +53,17 @@ export function noteAdd(note) {
 export function noteFetch(note) {
   return {
     type: NOTE_SELECTED,
-    payload: note
+    payload: note,
+    display: "show"
+  }
+}
+
+export function noteAdd(note) {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/noteAdd`, note)
+    .then(response => {
+      dispatch({ type: NOTE_ADD, payload: response.data.notes, display: "index" });
+    })
   }
 }
 
@@ -73,10 +71,16 @@ export function noteDelete(notePackage) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/noteDelete`, notePackage)
     .then(response => {
-      // console.log("receiving this response: ", response)
       dispatch({ type: NOTES_FETCH, payload: response.data.notes });
       browserHistory.push('/dashboard');
     })
+  }
+}
+
+export function noteToggle(type) {
+  return {
+    type: NOTE_TOGGLE,
+    payload: type
   }
 }
 
@@ -109,10 +113,9 @@ export function goalsFetch(uid) {
 
 export function goalAdd(goal) {
   return function(dispatch) {
-    dispatch({ type: GOAL_SHOWTOGGLE, payload: "today"})
     axios.post(`${ROOT_URL}/goalAdd`, goal)
     .then(response => {
-      dispatch({ type: GOALS_FETCH, payload: response.data.goals });
+      dispatch({ type: GOAL_ADD, payload: response.data.goals, display: "today" });
     })
   }
 }
@@ -128,7 +131,7 @@ export function goalDelete(goalPackage) {
 
 export function goalToggle(type) {
   return {
-    type: GOAL_SHOWTOGGLE,
+    type: GOAL_TOGGLE,
     payload: type
   }
 }
