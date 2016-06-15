@@ -11,3 +11,10 @@
 .clock {
   text-align: center;
 }
+
+.wi {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 20em;
+  height: 300px;
+}

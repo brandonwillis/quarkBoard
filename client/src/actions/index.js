@@ -87,15 +87,22 @@ export function noteToggle(type) {
 //Weather
 export function getGeolocation() {
   return function(dispatch) {
+    const options = {
+      enableHighAccuracy: true,
+    };
+
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
+        console.log("lat :", lat, " long: ", lon);
         const url = `${WEATHER_URL}&lat=${lat}&lon=${lon}`;
         axios.post(url).then(response => {
-          dispatch({ type: WEATHER_FETCH, payload: response.data.main });
+          dispatch({ type: WEATHER_FETCH, payload: response.data });
         })
-      });
+      }, (msg) => {
+        alert('Please enable locations');
+      }, { options });
     }
   }
 }
