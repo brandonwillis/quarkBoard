@@ -1,0 +1,13 @@
+.headerStyle {
+  text-align: center
+}
+
+.authButton {
+  position: absolute;
+  right:10px;
+  top:10px;
+}
+
+.clock {
+  text-align: center;
+}
