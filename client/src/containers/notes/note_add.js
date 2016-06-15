@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'React';
+import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { noteAdd, noteToggle } from '../../actions/index';
 import { Link } from 'react-router';
