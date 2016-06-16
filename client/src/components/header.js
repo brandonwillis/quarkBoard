@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
+import { PageHeader } from 'react-bootstrap';
 
 class Header extends Component {
   authButton(){
@@ -13,14 +14,12 @@ class Header extends Component {
 
   render() {
     return (
-        <div className="page-header headerStyle">
-          <h1>
-            QuarkBoard
-          </h1>
-          <div className="authButton">
-            {this.authButton()}
-          </div>
+      <PageHeader className="headerStyle">
+        QuarkBoard
+        <div className="authButton">
+        {this.authButton()}
         </div>
+      </PageHeader>
     )
   }
 }

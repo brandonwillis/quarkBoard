@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { goalsFetch, goalDelete, goalToggle } from '../../actions/index';
 import GoalAdd from './goal_add';
+import { Button } from 'react-bootstrap';
 
 class GoalIndex extends Component {
   componentWillMount() {
@@ -27,10 +28,10 @@ class GoalIndex extends Component {
         return (
           <li className="list-group-item" key={goal._id}>
             <div>
-              <button className="btn btn-danger pull-xs-right"
+              <Button className="btn btn-danger rightButton"
               onClick={this.deleteGoal.bind(this, goal._id)}>
               X
-              </button>
+              </Button>
               <span>{goal.dueDate}</span>
               <h3>{goal.goal}</h3>
             </div>
@@ -42,8 +43,8 @@ class GoalIndex extends Component {
   render() {
     return (
       <div>
-        <button className="btn btn-primary" onClick={this.toggleComp.bind(this, "today")}>Today</button>
-        <button className="btn btn-primary" onClick={this.toggleComp.bind(this, "week")}>This Week</button>
+        <Button className="btn btn-primary" onClick={this.toggleComp.bind(this, "today")}>Today</Button>
+        <Button className="btn btn-primary" onClick={this.toggleComp.bind(this, "week")}>This Week</Button>
         <div>
           <ul className="list-group">
             {this.renderGoals(this.props.display)}

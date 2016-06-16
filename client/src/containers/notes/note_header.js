@@ -23,13 +23,15 @@ class NoteHeader extends Component {
   render() {
     return (
       <div>
-        <div className="text-xs-right">
+        <div className="rightButton">
           <button className="btn btn-primary" onClick={this.displayAdd.bind(this, "add")}>+</button>
         </div>
         <div>
           <h1>My Notes</h1>
         </div>
+        <div>
           {this.renderNoteComponents()}
+        </div>
       </div>
     )
   }

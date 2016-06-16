@@ -31,7 +31,7 @@ class NotesIndex extends Component {
   render() {
     return (
       <div>
-        <ul className="list-group">
+        <ul className="list-group noteList">
           {this.renderNotes()}
         </ul>
       </div>

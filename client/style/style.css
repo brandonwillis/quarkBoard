@@ -9,12 +9,85 @@
 }
 
 .clock {
-  text-align: center;
+  text-align: left;
+
+}
+
+.clock h3 {
+  font-size: 80px;
 }
 
 .wi {
-  display: table-cell;
   vertical-align: middle;
-  font-size: 20em;
-  height: 300px;
+  height: 150px;
+}
+
+.rightButton {
+  float: right;
+  margin-right: 10px;
+}
+
+.weatherWrapper {
+  display: flex;
+  max-width: 400px;
+}
+
+.weatherLeft {
+  flex: 0 0 50%;
+}
+
+.weatherRight{
+  flex: 1;
+}
+
+.dashBoard {
+  height: 1600px;
+}
+
+.centerBlock {
+  width: 100%;
+  /*background-color: grey;*/
+  clear: both;
+  /*border: solid 2px;*/
+  padding: 20px;
+  height: 260px;
+}
+
+.centerBlock .clockBlock {
+  width: 70%;
+  float: right;
+  height: 100%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.centerBlock .weatherBlock {
+  text-align: center;
+  width: 30%;
+  float: left;
+  height: 100%;
+}
+
+.bottomBlock {
+  height: 450px;
+  /*background-color: teal;*/
+  border: solid 2px;
+  width: 100%;
+}
+
+.bottomBlock .noteBlock {
+  width: 50%;
+  float: right;
+  height: 100%;
+}
+
+.noteList {
+  max-height: 375px;
+  overflow: auto;
+}
+
+.bottomBlock .goalBlock {
+  height: 100%;
+  width: 40%;
+  float: left;
 }

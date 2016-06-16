@@ -19,7 +19,7 @@ class GoalHeader extends Component {
   render() {
     return (
       <div>
-        <div className="text-xs-right">
+        <div className="rightButton">
           <button className="btn btn-primary" onClick={this.displayAdd.bind(this, "add")}>+</button>
         </div>
         <div>
