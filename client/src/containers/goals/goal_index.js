@@ -32,7 +32,6 @@ class GoalIndex extends Component {
               onClick={this.deleteGoal.bind(this, goal._id)}>
               X
               </Button>
-              <span>{goal.dueDate}</span>
               <h3>{goal.goal}</h3>
             </div>
           </li>
@@ -43,13 +42,11 @@ class GoalIndex extends Component {
   render() {
     return (
       <div>
-        <Button className="btn btn-primary" onClick={this.toggleComp.bind(this, "today")}>Today</Button>
-        <Button className="btn btn-primary" onClick={this.toggleComp.bind(this, "week")}>This Week</Button>
-        <div>
-          <ul className="list-group">
-            {this.renderGoals(this.props.display)}
-          </ul>
-        </div>
+          <Button className="btn btn-primary goalBtn" onClick={this.toggleComp.bind(this, "today")}>Today</Button>
+          <Button className="btn btn-primary goalBtn" onClick={this.toggleComp.bind(this, "week")}>This Week</Button>
+        <ul className="list-group goalList">
+          {this.renderGoals(this.props.display)}
+        </ul>
       </div>
     )
   }

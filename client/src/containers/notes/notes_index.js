@@ -18,9 +18,9 @@ class NotesIndex extends Component {
   renderNotes() {
     return this.props.notes.map((note) => {
       return (
-        <li className="list-group-item" key={note._id} onClick={this.openThisNote.bind(this, note)}>
+        <li className="list-group-item noteListItem" key={note._id} onClick={this.openThisNote.bind(this, note)}>
           <div>
-            <span className="pull-xs-right">{dateConverter(note.date)}</span>
+            <p className="noteShowDate">{dateConverter(note.date)}</p>
             <h3>{note.title}</h3>
           </div>
         </li>

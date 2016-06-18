@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import { weatherAPIKEY } from '../../config.js';
 
 //Type Constants Imports
-import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE, NOTE_TOGGLE, WEATHER_FETCH, GOALS_FETCH, GOAL_TOGGLE, GOAL_DELETE, GOAL_ADD } from './types';
+import { AUTH_USER, UNAUTH_USER, SIGN_IN, NOTES_FETCH, NOTE_COLLAPSE, NOTE_ADD, NOTE_SELECTED, NOTE_DELETE, NOTE_TOGGLE, WEATHER_FETCH, GOALS_FETCH, GOAL_TOGGLE, GOAL_DELETE, GOAL_ADD, GOAL_COLLAPSE } from './types';
 
 const ROOT_URL = 'http://localhost:8200';
 const WEATHER_URL = `http://api.openweathermap.org/data/2.5/weather?appid=${weatherAPIKEY}`;
@@ -84,6 +84,13 @@ export function noteToggle(type) {
   }
 }
 
+export function noteCollapse(type) {
+  return {
+    type: NOTE_COLLAPSE,
+    payload: type
+  }
+}
+
 //Weather
 export function getGeolocation() {
   return function(dispatch) {
@@ -124,6 +131,13 @@ export function goalAdd(goal) {
     .then(response => {
       dispatch({ type: GOAL_ADD, payload: response.data.goals, display: "today" });
     })
+  }
+}
+
+export function goalCollapse(type) {
+  return {
+    type: GOAL_COLLAPSE,
+    payload: type
   }
 }
 

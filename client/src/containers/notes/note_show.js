@@ -26,16 +26,18 @@ class NoteShow extends Component {
     }
 
     return (
-        <div>
-          <button className="btn btn-danger" onClick={this.backToNotes.bind(this)}>Back To Dashboard</button>
-          <button
-          className="btn btn-danger pull-xs-right"
-          onClick={this.deleteNote.bind(this)}>
-          Delete Post
-          </button>
-          <h3>{note.title}</h3>
-          <h6>{dateConverter(note.date)}</h6>
-          <p>{note.content}</p>
+        <div className="noteShowBox">
+          <div className="noteShowBtnGroup">
+            <button className="btn btn-danger leftButton" onClick={this.backToNotes.bind(this)}>Back To Notes</button>
+            <button className="btn btn-danger pull-xs-right rightButton" onClick={this.deleteNote.bind(this)}>Delete Note</button>
+          </div>
+          <div className="noteShowHead">
+            <p className="noteShowTitle">{note.title}</p>
+            <p className="noteShowDate">{dateConverter(note.date)}</p>
+          </div>
+          <div className="noteShowContent">
+            <p>{note.content}</p>
+          </div>
         </div>
     )
   };

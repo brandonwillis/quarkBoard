@@ -12,7 +12,6 @@ class GoalAdd extends Component {
     const { goal, dueDate } = formData;
     const uid = this.props.uid;
     const formPackage = ({ uid, goal, dueDate });
-    console.log("form data: ", formPackage)
     this.props.goalAdd(formPackage);
   }
 
@@ -24,30 +23,32 @@ class GoalAdd extends Component {
     const { fields: { goal, dueDate}, handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <h3>New Goal</h3>
-        <div className={`form-group ${goal.touched && goal.invalid ? "has-danger" : '' }`}>
-          <label>Goal</label>
-          <input type="text" className="form-control" {...goal} />
-          <div className="text-help">
-            {goal.touched ? goal.error : ""}
+      <div className="addGoal">
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <h3>New Goal</h3>
+          <div className={`form-group ${goal.touched && goal.invalid ? "has-danger" : '' }`}>
+            <label>Goal</label>
+            <input type="text" className="form-control" {...goal} />
+            <div className="text-help">
+              {goal.touched ? goal.error : ""}
+            </div>
           </div>
-        </div>
 
-        <div>
-          <label>For</label>
           <div>
-            <label>
-              <input type="radio" { ...dueDate} value="today" checked={dueDate.value === "today"}/> Today
-            </label>
-            <label>
-              <input type="radio" { ...dueDate} value="week" checked={dueDate.value === "week"}/> This Week
-            </label>
+            <label>For</label>
+            <div>
+              <label>
+                <input type="radio" { ...dueDate} value="today" checked={dueDate.value === "today"}/> Today
+              </label>
+              <label>
+                <input type="radio" { ...dueDate} value="week" checked={dueDate.value === "week"}/> This Week
+              </label>
+            </div>
           </div>
-        </div>
-        <Link to="dashboard" className="btn btn-danger" onClick={this.cancelGoal.bind(this)}>Back To Goals</Link>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+          <Link to="dashboard" className="btn btn-danger" onClick={this.cancelGoal.bind(this)}>Back To Goals</Link>
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+      </div>
     )
   }
 }

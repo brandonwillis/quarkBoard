@@ -1,93 +1,234 @@
+html, body {
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+/** Header **/
 .headerStyle {
-  text-align: center
+  text-align: center;
+  margin-top: 0;
+  color: white;
 }
 
-.authButton {
-  position: absolute;
-  right:10px;
-  top:10px;
+.headerParent {
+  position: relative;
+  height: 110px;
+  width: 100%;
+  background: black;
 }
 
+.compHeader {
+  text-align: center;
+}
+
+/** Container **/
+.quarkBody {
+  width: 100% !important;
+  padding: 0px !important;
+  background-color: white;
+}
+
+/** Clock **/
 .clock {
   text-align: left;
-
 }
 
 .clock h3 {
-  font-size: 80px;
+  font-size: 110px;
+  color: white;
 }
 
+.clockBlock {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5%;
+}
+
+/** Weather **/
 .wi {
-  vertical-align: middle;
-  height: 150px;
-}
-
-.rightButton {
-  float: right;
-  margin-right: 10px;
+  height: 120px;
+  margin-top: 4px;
 }
 
 .weatherWrapper {
   display: flex;
-  max-width: 400px;
+  flex-wrap: wrap;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 20px;
 }
 
 .weatherLeft {
-  flex: 0 0 50%;
+  flex: 0 0 40%;
 }
 
 .weatherRight{
-  flex: 1;
-}
-
-.dashBoard {
-  height: 1600px;
-}
-
-.centerBlock {
-  width: 100%;
-  /*background-color: grey;*/
-  clear: both;
-  /*border: solid 2px;*/
-  padding: 20px;
-  height: 260px;
-}
-
-.centerBlock .clockBlock {
-  width: 70%;
-  float: right;
-  height: 100%;
   text-align: left;
-  padding-left: 20px;
+  margin-top: -10px;
+  margin-left: 10px;
 }
 
-.centerBlock .weatherBlock {
+.weatherBlock {
   text-align: center;
-  width: 30%;
+  position: relative;
   float: left;
-  height: 100%;
+  height: 140px;
+  width: 100%;
+  max-width: 400px;
+  margin: 3.5%;
 }
+
+/** Buttons **/
+.rightButton {
+  position: absolute;
+  right: 15px;
+}
+
+.leftButton {
+  float: left;
+  margin-left: 10px;
+}
+
+.weatherButton {
+  margin: 50px;
+  width: 160px;
+  height: 60px;
+  font-size: 24px;
+}
+
+
+/** Dashboard **/
+.dashboard {
+  background-size: cover;
+  background-image: url('../src/images/background/corkboard4.jpg');
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.clockBlock {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
 .bottomBlock {
   height: 450px;
-  /*background-color: teal;*/
-  border: solid 2px;
   width: 100%;
 }
 
-.bottomBlock .noteBlock {
-  width: 50%;
+
+/** Notepad **/
+
+.noteBlock {
+  background-color: white;
+  /*height: 50%;*/
+  width: 30%;
   float: right;
-  height: 100%;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 30px;
 }
 
 .noteList {
-  max-height: 375px;
+  max-height: 365px;
   overflow: auto;
+  margin-bottom: 0px !important;
 }
 
-.bottomBlock .goalBlock {
-  height: 100%;
-  width: 40%;
+.noteHeaderBlock {
+  border-bottom: 1px solid #91e6db;
+}
+
+.noteParent {
+  position: relative;
+}
+
+li.noteListItem {
+  border: 0 none;
+  border-top: 1px solid #91e6db !important;
+  padding-left: 20px;
+}
+
+.addNote {
+  padding: 0px 20px;
+  height: 355px;
+}
+
+.noteShowBox {
+  height: 360px;
+}
+
+.noteShowHead {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.noteShowTitle {
+  text-align: left;
+  padding-left: 40px;
+  font-size: 28px;
+}
+
+.noteShowBtnGroup {
+  margin-top: 15px;
+  height: 30px;
+}
+
+.noteShowDate {
+  text-align: right;
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  font-size: 16px;
+}
+
+.noteShowContent {
+  padding: 15px 40px;
+  overflow: auto;
+  max-height: 254px;
+  font-size: 18px;
+}
+
+/** Goals **/
+.goalList {
+  max-height: 275px;
+  overflow: auto;
+  margin-bottom: 0px !important;
+}
+
+.addGoal {
+  padding: 0px 20px;
+  height: 310px;
+}
+
+.goalBlock {
+  background-color: white;
+  width: 26%;
   float: left;
+  border: 1px solid;
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+}
+
+.goalBtn {
+  width: 50%;
+  height: 45px;
+}
+
+.goalBtnGroup {
+
+}
+
+.goalParent {
+  position: relative;
 }

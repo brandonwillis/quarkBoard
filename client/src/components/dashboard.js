@@ -7,23 +7,11 @@ import GoalHeader from '../containers/goals/goal_header';
 export default class Dashboard extends Component {
   render() {
     return (
-      <div>
-        <div className="centerBlock">
-          <div className="clockBlock">
-            <Clock/>
-          </div>
-          <div className="weatherBlock">
-            <Weather/>
-          </div>
-        </div>
-        <div className="bottomBlock">
-          <div className="noteBlock">
-            <NoteHeader/>
-          </div>
-          <div className="goalBlock">
-            <GoalHeader/>
-          </div>
-        </div>
+      <div className="dashBoardBody">
+        <Clock/>
+        <Weather/>
+        <GoalHeader/>
+        <NoteHeader />
       </div>
     );
   }

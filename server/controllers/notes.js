@@ -9,7 +9,8 @@ exports.fetchNotes = function(req, res) {
 
     Note.find({'_id': { $in: userNotes }}, function(err, result) {
       if(err) { return err }
-      res.send({ notes: result})
+      const reversedNotes = result.reverse();
+      res.send({ notes: reversedNotes })
     })
   });
 }

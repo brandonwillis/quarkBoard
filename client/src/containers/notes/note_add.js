@@ -23,6 +23,7 @@ class NoteAdd extends Component {
     const { fields: { title, content}, handleSubmit } = this.props;
 
     return (
+      <div className="addNote">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <h3>New Note</h3>
           <div className={`form-group ${title.touched && title.invalid ? "has-danger" : '' }`}>
@@ -43,6 +44,7 @@ class NoteAdd extends Component {
           <Link to="dashboard" className="btn btn-danger" onClick={this.cancelNote.bind(this)}>Back To Notes</Link>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+      </div>
     )
   }
 }
