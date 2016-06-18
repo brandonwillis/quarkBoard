@@ -7,7 +7,7 @@ import GoalHeader from '../containers/goals/goal_header';
 export default class Dashboard extends Component {
   render() {
     return (
-      <div className="dashBoardBody">
+      <div className="dashBoardBody background fullscreen" data-img-width="1600" data-img-height="1064">
         <Clock/>
         <Weather/>
         <GoalHeader/>

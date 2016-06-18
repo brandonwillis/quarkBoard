@@ -34,17 +34,15 @@ class NoteHeader extends Component {
   render() {
     return (
       <div className="noteBlock">
-        <div className="noteParent">
-          <div className="noteHeaderBlock">
-            <button className="btn btn-primary rightButton" onClick={this.displayAdd.bind(this, "add")}>+</button>
-            <div onClick={this.noteCollapse.bind(this)}>
-              <h1 className="compHeader">Notepad</h1>
-            </div>
+        <div className="noteHeaderBlock">
+          <button className="btn btn-primary rightButton" onClick={this.displayAdd.bind(this, "add")}>+</button>
+          <div onClick={this.noteCollapse.bind(this)}>
+            <h1 className="compHeader">Notepad</h1>
           </div>
-          <Collapse in={this.props.expanded}>
-            {this.renderNoteComponents()}
-          </Collapse>
         </div>
+        <Collapse in={this.props.expanded}>
+          {this.renderNoteComponents()}
+        </Collapse>
       </div>
     )
   }

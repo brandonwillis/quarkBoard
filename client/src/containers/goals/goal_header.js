@@ -34,11 +34,9 @@ class GoalHeader extends Component {
           <div onClick={this.goalCollapse.bind(this)}>
             <h1 className="compHeader">My Goals</h1>
           </div>
-          <div>
-            <Collapse in={this.props.expanded}>
-              {this.renderGoalComponents()}
-            </Collapse>
-          </div>
+          <Collapse in={this.props.expanded}>
+            {this.renderGoalComponents()}
+          </Collapse>
         </div>
       </div>
     )

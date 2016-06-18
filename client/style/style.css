@@ -4,6 +4,11 @@ html, body {
   overflow: hidden;
 }
 
+.background {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
 /** Header **/
 .headerStyle {
   text-align: center;
@@ -25,6 +30,7 @@ html, body {
 /** Container **/
 .quarkBody {
   width: 100% !important;
+  height: 100% !important;
   padding: 0px !important;
   background-color: white;
 }
@@ -88,8 +94,7 @@ html, body {
 }
 
 .leftButton {
-  float: left;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .weatherButton {
@@ -99,13 +104,41 @@ html, body {
   font-size: 24px;
 }
 
+.deleteBtn {
+  background-color: rgba(232, 227, 227, 0.64) !important;
+  color: black;
+  border: none;
+  border-radius: 50% !important;
+}
 
+.deleteBtn:hover {
+  background-color: rgba(220, 220, 220, 0.66) !important;
+  color: black;
+}
+
+.submitBtn {
+  margin-right: 40px;
+  width: 120px;
+}
 /** Dashboard **/
-.dashboard {
-  background-size: cover;
+.dashBoardBody {
+  /*background-size: cover;
   background-image: url('../src/images/background/corkboard4.jpg');
   background-repeat: no-repeat;
-  position: relative;
+  position: relative;*/
+  background: url('../src/images/background/corkboard4.jpg');
+  /*-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;*/
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .clockBlock {
@@ -125,7 +158,6 @@ html, body {
 
 .noteBlock {
   background-color: white;
-  /*height: 50%;*/
   width: 30%;
   float: right;
   border-top: 1px solid;
@@ -144,11 +176,8 @@ html, body {
 }
 
 .noteHeaderBlock {
-  border-bottom: 1px solid #91e6db;
-}
-
-.noteParent {
   position: relative;
+  border-bottom: 1px solid #91e6db;
 }
 
 li.noteListItem {
@@ -205,13 +234,17 @@ li.noteListItem {
   margin-bottom: 0px !important;
 }
 
+li.goalListItem {
+  background-color: #FFFFA5 !important;
+}
+
 .addGoal {
   padding: 0px 20px;
   height: 310px;
 }
 
 .goalBlock {
-  background-color: white;
+  background-color: #FFFFA5;
   width: 26%;
   float: left;
   border: 1px solid;
@@ -223,12 +256,22 @@ li.noteListItem {
 .goalBtn {
   width: 50%;
   height: 45px;
+  background-color: #FFFFA5 !important;
+  border: none !important;
+}
+
+.goalBtn:hover {
+  background-color: rgba(215, 224, 154, 0.54) !important;
 }
 
 .goalBtnGroup {
-
+  padding: 15px;
 }
 
 .goalParent {
   position: relative;
+}
+
+.weekRadio {
+  padding: 5px 20px;
 }
