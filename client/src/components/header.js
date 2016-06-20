@@ -20,7 +20,7 @@ class Header extends Component {
         </div>
       </div>
     )
-  }
+  };
 }
 
 function mapStateToProps(state) {

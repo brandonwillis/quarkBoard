@@ -18,7 +18,6 @@ class GoalHeader extends Component {
   }
 
   goalCollapse() {
-    console.log("note collapsing: ", this.props.expanded);
     event.cancelBubble = true;
     if(event.stopPropagation) {
       event.stopPropagation();

@@ -54,11 +54,9 @@ function validate(values) {
   if(!values.title) {
     errors.title = "Don't forget a title"
   }
-
   if(!values.content) {
     errors.content = "You are missing content"
   }
-
   return errors;
 }
 

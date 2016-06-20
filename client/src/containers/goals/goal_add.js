@@ -16,7 +16,7 @@ class GoalAdd extends Component {
   }
 
   cancelGoal() {
-    this.props.goalToggle("today")
+    this.props.goalToggle("today");
   }
 
   render() {

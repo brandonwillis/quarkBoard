@@ -22,7 +22,6 @@ class NoteHeader extends Component {
   }
 
   noteCollapse() {
-    console.log("note collapsing: ", this.props.expanded);
     event.cancelBubble = true;
     if(event.stopPropagation) {
       event.stopPropagation();
