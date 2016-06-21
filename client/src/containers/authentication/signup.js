@@ -16,39 +16,43 @@ class SignUp extends Component {
     const { fields: { username, email, password, confirmPassword}, handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <h3>Sign Up</h3>
-        <div className={`form-group ${username.touched && username.invalid ? "has-danger" : '' }`}>
-          <label>Username</label>
-          <input type="text" className="form-control" {...username} />
-          <div className="text-help">
-            {username.touched ? username.error : ""}
+      <div className="signUpBlock">
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <h3 className="compHeader">Sign Up</h3>
+          <div className={`form-group ${username.touched && username.invalid ? "has-danger" : '' }`}>
+            <label>Username</label>
+            <input type="text" className="form-control" {...username} />
+            <div className="text-help">
+              {username.touched ? username.error : ""}
+            </div>
           </div>
-        </div>
-        <div className={`form-group ${email.touched && email.invalid ? "has-danger" : '' }`}>
-          <label>Email Address</label>
-          <input type="text" className="form-control" {...email} />
-          <div className="text-help">
-            {email.touched ? email.error : ""}
+          <div className={`form-group ${email.touched && email.invalid ? "has-danger" : '' }`}>
+            <label>Email Address</label>
+            <input type="text" className="form-control" {...email} />
+            <div className="text-help">
+              {email.touched ? email.error : ""}
+            </div>
           </div>
-        </div>
-        <div className={`form-group ${password.touched && password.invalid ? "has-danger" : '' }`}>
-          <label>Password</label>
-          <input type="password" className="form-control" {...password} />
-          <div className="text-help">
-            {password.touched ? password.error : ""}
+          <div className={`form-group ${password.touched && password.invalid ? "has-danger" : '' }`}>
+            <label>Password</label>
+            <input type="password" className="form-control" {...password} />
+            <div className="text-help">
+              {password.touched ? password.error : ""}
+            </div>
           </div>
-        </div>
-        <div className={`form-group ${confirmPassword.touched && confirmPassword.invalid ? "has-danger" : '' }`}>
-          <label>Confirm Password</label>
-          <input type="password" className="form-control" {...confirmPassword} />
-          <div className="text-help">
-            {confirmPassword.touched ? confirmPassword.error : ""}
+          <div className={`form-group ${confirmPassword.touched && confirmPassword.invalid ? "has-danger" : '' }`}>
+            <label>Confirm Password</label>
+            <input type="password" className="form-control" {...confirmPassword} />
+            <div className="text-help">
+              {confirmPassword.touched ? confirmPassword.error : ""}
+            </div>
           </div>
-        </div>
-        <Link to="/" className="btn btn-danger">Cancel</Link>
-        <button type="submit" className="btn btn-primary">Sign Up</button>
-      </form>
+          <div className="authBtnGroup">
+            <Link to="/" className="btn btn-danger leftButton">Cancel</Link>
+            <button type="submit" className="btn btn-primary rightButton">Sign Up</button>
+          </div>
+        </form>
+      </div>
     )
   };
 }
