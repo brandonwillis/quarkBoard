@@ -10,7 +10,6 @@ export default class Dashboard extends Component {
     return (
       <div className="dashBoardBody background fullscreen" data-img-width="1600" data-img-height="1064">
         <Clock/>
-        <Timer />
         <Weather/>
         <GoalHeader/>
         <NoteHeader />

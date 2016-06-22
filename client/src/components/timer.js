@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { ProgressBar } from 'react-bootstrap';
 
 class Timer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { min: "25", sec: "00", totalTime: "1500", isActive: false, inRest: false };
+    this.state = { min: "25", sec: "00", totalTime: "1500", maxTime:"1500", isActive: false, working: true, inRest: false };
 
     this.clockInterval = this.clockInterval.bind(this);
     this.startWork = this.startWork.bind(this);
@@ -41,6 +42,8 @@ class Timer extends Component {
 
   stopClock() {
     this.intervals.forEach( clearInterval );
+
+    this.setState({ min: "25", sec: "00", totalTime: "1500", isActive: false, working: true, inRest: false })
   }
 
   pauseClock() {
@@ -52,29 +55,35 @@ class Timer extends Component {
   startRest() {
     this.intervals.forEach( clearInterval );
 
-    this.setState({ inRest: true });
+    this.setState({ inRest: true, working: false });
 
     if( this.state.inRest === true ) {
-      this.setState ({ min: "5", sec: "00" });
+      this.setState ({ min: "5", sec: "00" , maxTime: "300" });
     }
     this.intervals.push( setInterval.apply( null, [ this.startWork, 1000 ] ) );
   }
 
+  timePercent() {
+    return 100 - ((this.state.maxTime - this.state.totalTime) / this.state.maxTime * 100);
+  }
+
   render() {
     return (
-      <div>
-        <div>
-          <button onClick={ this.clockInterval.bind(this) }> Start Timer </button>
-          <button onClick={ this.stopClock.bind(this) }> Stop Timer </button>
-          <button onClick={ this.pauseClock.bind(this) }> Pause Timer </button>
+      <div className="timerBlock">
+        <p className="timerHeader">Productivity Timer</p>
+        <p className={ this.state.isActive ? "timerMSG" : "hide" }>{ this.state.working ? "Let's Get To Work" : "Time For A Break "}</p>
+        <div className="time">
+          <p>{ this.state.min }<span className="timerWords">min</span> { this.state.sec }<span className="timerWords">sec</span></p>
         </div>
         <div>
-          <div>{ this.state.min } min</div><div> { this.state.sec } sec</div>
+          <ProgressBar now={this.timePercent()} />
+          <button className={ this.state.isActive ? "hide" : "" } onClick={ this.clockInterval.bind(this) }> Start Timer </button>
+          <button className={ this.state.isActive ? "" : "hide" } onClick={ this.stopClock.bind(this) }> Stop Timer </button>
+          <button className={ this.state.isActive ? "" : "hide" } onClick={ this.pauseClock.bind(this) }> Pause Timer </button>
         </div>
       </div>
     )
   }
 }
-
 
 export default Timer;

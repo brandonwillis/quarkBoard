@@ -30,6 +30,7 @@
     "babel-preset-stage-1": "^6.1.18",
     "classnames": "^2.2.5",
     "lodash": "^3.10.1",
+    "material-ui": "^0.15.1",
     "pug": "^2.0.0-alpha8",
     "react": "^0.14.3",
     "react-bootstrap": "^0.29.4",

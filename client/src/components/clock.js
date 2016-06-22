@@ -30,7 +30,7 @@ class Clock extends Component {
      <div className="clock clockBlock">
        <h3>{this.state.time}</h3>
        <div>
-        {/*<Timer />*/}
+        <Timer />
        </div>
      </div>
    );

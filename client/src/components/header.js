@@ -6,16 +6,24 @@ import * as actions from '../actions/index';
 class Header extends Component {
   authButton(){
     if (this.props.auth.isAuth) {
-      return <Link to="/" className="btn btn-primary" onClick={() => this.props.signOut()}>Sign Out</Link>
+      return (
+        <div className="signOutBtn" onClick={() => this.props.signOut()}>
+          <Link to="/">Sign Out</Link>
+        </div>
+      )
     }
-    return <Link to="/" className="btn btn-primary rightButton">Sign In</Link>;
+    return (
+      <div className="signOutBtn">
+        <Link to="/">Sign In</Link>
+      </div>
+    )
   }
 
   render() {
     return (
       <div className="headerParent">
-        <h1 className="headerStyle">QuarkBoard</h1>
-        <div className="rightButton">
+        <p className="headerStyle">QuarkBoard</p>
+        <div className="signOutBtn">
           {this.authButton()}
         </div>
       </div>

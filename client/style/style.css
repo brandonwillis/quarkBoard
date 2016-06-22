@@ -4,23 +4,22 @@ html, body {
   overflow: hidden;
 }
 
-.background {
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
 /** Header **/
 .headerStyle {
   text-align: center;
-  margin-top: 0;
-  color: white;
+  color: #ffb600;
+  font-size: 64px;
 }
 
 .headerParent {
   position: relative;
-  height: 110px;
+  height: 100px;
   width: 100%;
-  background: black;
+  background: #661118;
+  border-bottom: 5px solid #ffb600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .compHeader {
@@ -33,6 +32,7 @@ html, body {
   height: 100% !important;
   padding: 0px !important;
   background-color: white;
+  position: relative;
 }
 
 /** Sign In/Up **/
@@ -69,6 +69,37 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   margin-top: 5%;
+}
+
+/** Timer **/
+.timerBlock {
+  position: absolute;
+  width: 300px;
+  height: 280px;
+  background-color: #d5d5d5;
+  border: 1px solid;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.time p {
+  font-size: 50px;
+  margin-top: -10px;
+}
+
+.timerWords {
+  font-size: 12px;
+}
+
+.timerHeader {
+  font-size: 30px;
+}
+
+.timerMSG {
+  font-size: 18px;
 }
 
 /** Weather **/
@@ -139,24 +170,44 @@ html, body {
   margin-right: 40px;
   width: 120px;
 }
+
+.signOutBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 160px;
+  height: 95px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.signOutBtn:hover {
+  background-color: rgba(95, 6, 6, 0.65);
+}
+
+.signOutBtn a {
+  color: #ffb600;
+}
+
+.signOutBtn a:hover {
+  color: #ffb600;
+  text-decoration: none;
+}
+
 /** Dashboard **/
 .dashBoardBody {
-  /*background-size: cover;
-  background-image: url('../src/images/background/corkboard4.jpg');
-  background-repeat: no-repeat;
-  position: relative;*/
-  /*background: url('../src/images/background/corkboard4.jpg');*/
-  /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;*/
+  background: url('../src/images/background/quarkBoard.jpg');
   background-size: cover;
-  height: 100%;
-  width: 100%;
 }
 
 .fullscreen {
+  position: absolute;
+  top: 100px;
+  bottom: 0;
   width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 
