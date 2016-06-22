@@ -74,20 +74,23 @@ html, body {
 /** Timer **/
 .timerBlock {
   position: absolute;
-  width: 300px;
-  height: 280px;
-  background-color: #d5d5d5;
-  border: 1px solid;
+  width: 380px;
+  height: 440px;
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
   text-align: center;
-  padding: 20px;
+  padding: 5px 20px 20px 20px;
   margin-top: 30px;
   left: 50%;
   transform: translateX(-50%);
+  background: url('../src/images/background/pomodoro.jpg');
+  background-size: cover;
 }
 
 .time p {
-  font-size: 50px;
-  margin-top: -10px;
+  font-size: 70px;
+  margin-top: 65px;
+  color: white;
 }
 
 .timerWords {
@@ -95,7 +98,9 @@ html, body {
 }
 
 .timerHeader {
-  font-size: 30px;
+  font-size: 34px;
+  /*margin-top: 20px;*/
+  font-weight: bolder;
 }
 
 .timerMSG {
@@ -222,7 +227,6 @@ html, body {
   height: 450px;
   width: 100%;
 }
-
 
 /** Notepad **/
 
