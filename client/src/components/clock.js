@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import Timer from './timer';
 
 class Clock extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       time: (new Date()).toLocaleTimeString()
     };
@@ -27,6 +29,9 @@ class Clock extends Component {
    return (
      <div className="clock clockBlock">
        <h3>{this.state.time}</h3>
+       <div>
+        {/*<Timer />*/}
+       </div>
      </div>
    );
  }
