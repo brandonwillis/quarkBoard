@@ -41,8 +41,10 @@ class NoteAdd extends Component {
               {content.touched ? content.error : ""}
             </div>
           </div>
-          <Link to="dashboard" className="btn btn-danger" onClick={this.cancelNote.bind(this)}>Back To Notes</Link>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <div className="addBtnGroup">
+            <Link to="dashboard" className="btn btn-danger leftButton" onClick={this.cancelNote.bind(this)}>Back To Notes</Link>
+            <button type="submit" className="btn btn-primary rightButton submitBtn">Submit</button>
+          </div>
         </form>
       </div>
     )

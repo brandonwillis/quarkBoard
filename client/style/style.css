@@ -5,15 +5,17 @@ html, body {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-label {
-  color: #ffb600;
+textarea {
+  min-height: 100px !important;
 }
+
 /** Header **/
 .headerStyle {
   text-align: center;
   color: #ffb600;
-  font-size: 64px;
+  font-size: 70px;
   font-family: 'Oleo Script', cursive !important;
+  margin: 0;
 }
 
 .headerParent {
@@ -58,21 +60,25 @@ label {
   padding: 30px;
 }
 
+.authBlock label {
+  color: #ffb600;
+}
+
 .authBtnGroup {
   padding: 15px;
 }
 
+.authBtnGroup .btn {
+  width: 80px;
+}
+
 .text-help {
-  color: white;
+  color: black;
 }
 
 /** Clock **/
-.clock {
-  text-align: left;
-}
-
 .clockTime {
-  font-size: 110px;
+  font-size: 120px;
   color: white;
 }
 
@@ -80,7 +86,7 @@ label {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 /** Timer **/
@@ -92,9 +98,8 @@ label {
   border-radius: 10px;
   text-align: center;
   padding: 5px 20px 20px 20px;
-  margin-top: 30px;
   left: 50%;
-  bottom: 8%;
+  bottom: 10%;
   transform: translateX(-50%);
   background: url('../src/images/background/pomodoro.jpg');
   background-size: cover;
@@ -102,7 +107,7 @@ label {
 
 .time p {
   font-size: 70px;
-  margin-top: 60px;
+  margin-top: 85px;
   color: white;
 }
 
@@ -111,8 +116,9 @@ label {
 }
 
 .timerHeader {
-  font-size: 34px;
+  font-size: 24px;
   font-weight: bolder;
+  margin-top: -9px;
 }
 
 .timerMSG {
@@ -184,9 +190,10 @@ button:focus {
 
 .weatherButton {
   margin: 50px;
-  width: 160px;
-  height: 60px;
-  font-size: 24px;
+  width: 180px;
+  height: 70px;
+  font-size: 18px !important;
+  border-color: #2e6da4 !important;
 }
 
 .deleteBtn {
@@ -218,6 +225,11 @@ button:focus {
   align-items: center;
   justify-content: center;
   font-size: 24px;
+}
+
+.signOutBtn a:focus {
+  color: #ffb600;
+  text-decoration: none;
 }
 
 .timerBtnGroup {
@@ -264,13 +276,6 @@ button:focus {
   overflow: hidden;
 }
 
-.clockBlock {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-
 .bottomBlock {
   height: 450px;
   width: 100%;
@@ -291,7 +296,7 @@ button:focus {
 }
 
 .noteList {
-  max-height: 350px;
+  max-height: 365px;
   overflow: auto;
   margin-bottom: 0px !important;
 }
@@ -315,11 +320,16 @@ li.noteListItem {
 
 .addNote {
   padding: 0px 20px;
-  height: 355px;
+  height: 345px;
+}
+
+.noteListItem h3 {
+  font-size:18px;
+  font-weight: bold;
 }
 
 .noteShowBox {
-  height: 360px;
+  height: 350px;
 }
 
 .noteShowHead {
@@ -331,7 +341,7 @@ li.noteListItem {
 .noteShowTitle {
   text-align: left;
   padding-left: 40px;
-  font-size: 28px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -340,19 +350,27 @@ li.noteListItem {
   height: 30px;
 }
 
+.noteIndexDate {
+  text-align: right;
+  position: absolute;
+  right: 15px;
+  font-size: 14px;
+  top: 10px;
+}
+
 .noteShowDate {
   text-align: right;
   position: absolute;
   right: 25px;
-  top: 14px;
-  font-size: 16px;
+  top: 0;
+  font-size: 14px;
 }
 
 .noteShowContent {
   padding: 15px 40px;
   overflow: auto;
   max-height: 254px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 /** Goals **/
@@ -360,6 +378,11 @@ li.noteListItem {
   max-height: 275px;
   overflow: auto;
   margin-bottom: 0px !important;
+}
+
+.goalList h4{
+  text-size: 15px;
+  font-weight: bold;
 }
 
 li.goalListItem {
@@ -390,13 +413,14 @@ li.goalListItem {
   height: 45px;
   background-color: #FFFFA5 !important;
   border: none !important;
+  font-size: 16px !important;
 }
 
 .goalBtn:hover {
   background-color: rgba(215, 224, 154, 0.54) !important;
 }
 
-.goalBtnGroup {
+.addBtnGroup {
   padding: 15px;
 }
 

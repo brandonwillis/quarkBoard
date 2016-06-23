@@ -45,7 +45,7 @@ class GoalAdd extends Component {
               </label>
             </div>
           </div>
-          <div className="goalBtnGroup">
+          <div className="addBtnGroup">
             <Link to="dashboard" className="btn btn-danger leftButton" onClick={this.cancelGoal.bind(this)}>Back To Goals</Link>
             <button type="submit" className="btn btn-primary rightButton submitBtn">Submit</button>
           </div>

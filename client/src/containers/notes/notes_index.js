@@ -20,7 +20,7 @@ class NotesIndex extends Component {
       return (
         <li className="list-group-item noteListItem" key={note._id} onClick={this.openThisNote.bind(this, note)}>
           <div>
-            <p className="noteShowDate">{dateConverter(note.date)}</p>
+            <p className="noteIndexDate">{dateConverter(note.date)}</p>
             <h3>{note.title}</h3>
           </div>
         </li>

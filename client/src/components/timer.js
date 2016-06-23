@@ -11,6 +11,7 @@ class Timer extends Component {
     this.startWork = this.startWork.bind(this);
     this.stopClock = this.stopClock.bind(this);
     this.pauseClock = this.pauseClock.bind(this);
+    this.addZero = this.addZero.bind(this);
   }
 
   componentWillMount() {
@@ -43,7 +44,7 @@ class Timer extends Component {
   stopClock() {
     this.intervals.forEach( clearInterval );
 
-    this.setState({ min: "25", sec: "00", totalTime: "1500", isActive: false, working: true, inRest: false })
+    this.setState({ min: "25", sec: "00", totalTime: "1500", maxTime: "1500", isActive: false, working: true, inRest: false })
   }
 
   pauseClock() {
@@ -58,7 +59,7 @@ class Timer extends Component {
     this.setState({ inRest: true, working: false });
 
     if( this.state.inRest === true ) {
-      this.setState ({ min: "5", sec: "00" , maxTime: "300" });
+      this.setState ({ min: "5", sec: "00" , totalTime:"300", maxTime: "300" });
     }
     this.intervals.push( setInterval.apply( null, [ this.startWork, 1000 ] ) );
   }
@@ -67,12 +68,20 @@ class Timer extends Component {
     return 100 - ((this.state.maxTime - this.state.totalTime) / this.state.maxTime * 100);
   }
 
+  addZero(second) {
+    if(second < 10) {
+      return ("0" + second).slice(-2);
+    } else {
+      return second;
+    }
+  }
+
   render() {
     return (
       <div className="timerBlock">
         <p className="timerHeader">Productivity Timer</p>
         <div className="time">
-          <p>{ this.state.min }<span className="timerWords">min </span>{ this.state.sec }<span className="timerWords">sec</span></p>
+          <p>{ this.state.min }<span className="timerWords">min </span>{ this.addZero(this.state.sec) }<span className="timerWords">sec</span></p>
         </div>
         <div className="timerGroup">
           <ProgressBar className="timerProgBar" now={this.timePercent()} />

@@ -5,11 +5,11 @@ import { tempConverter } from '../helpers/helperfunctions';
 
 class Weather extends Component {
 
-
   weatherInfo(){
     if (this.props.currWeather === null) {
       return <button className="btn btn-primary weatherButton" onClick={() => this.props.getGeolocation()}>Get Weather</button>
     }
+    
     const weatherIcon = this.props.currWeather.weather[0].icon;
 
     return (
