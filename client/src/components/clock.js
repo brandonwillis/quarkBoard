@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Timer from './timer';
 
 class Clock extends Component {
   constructor(props) {
@@ -28,10 +27,7 @@ class Clock extends Component {
   render() {
    return (
      <div className="clock clockBlock">
-       <h3>{this.state.time}</h3>
-       <div>
-        <Timer />
-       </div>
+       <p className="clockTime">{this.state.time}</p>
      </div>
    );
  }

@@ -29,7 +29,7 @@ class GoalIndex extends Component {
           <li className="list-group-item goalListItem" key={goal._id}>
             <div>
               <Button className="btn deleteBtn rightButton" onClick={this.deleteGoal.bind(this, goal._id)}>X</Button>
-              <h3>{goal.goal}</h3>
+              <h4>{goal.goal}</h4>
             </div>
           </li>
         );

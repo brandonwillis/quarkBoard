@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ProgressBar } from 'react-bootstrap';
+import { ProgressBar, Button } from 'react-bootstrap';
 
 class Timer extends Component {
   constructor(props) {
@@ -71,15 +71,17 @@ class Timer extends Component {
     return (
       <div className="timerBlock">
         <p className="timerHeader">Productivity Timer</p>
-        <p className={ this.state.isActive ? "timerMSG" : "hide" }>{ this.state.working ? "Let's Get To Work" : "Time For A Break "}</p>
         <div className="time">
-          <p>{ this.state.min }<span className="timerWords">min</span> { this.state.sec }<span className="timerWords">sec</span></p>
+          <p>{ this.state.min }<span className="timerWords">min </span>{ this.state.sec }<span className="timerWords">sec</span></p>
         </div>
-        <div>
-          <ProgressBar now={this.timePercent()} />
-          <button className={ this.state.isActive ? "hide" : "" } onClick={ this.clockInterval.bind(this) }> Start Timer </button>
-          <button className={ this.state.isActive ? "" : "hide" } onClick={ this.stopClock.bind(this) }> Stop Timer </button>
-          <button className={ this.state.isActive ? "" : "hide" } onClick={ this.pauseClock.bind(this) }> Pause Timer </button>
+        <div className="timerGroup">
+          <ProgressBar className="timerProgBar" now={this.timePercent()} />
+          <Button className={ this.state.isActive ? "hide" : "timerBtnGroup" } onClick={ this.clockInterval.bind(this) }> Start Timer </Button>
+          <Button className={ this.state.isActive ? "stopBtn timerBtnGroup" : "hide" } onClick={ this.stopClock.bind(this) }> Stop Timer </Button>
+          <Button className={ this.state.isActive ? "timerBtnGroup" : "hide" } onClick={ this.pauseClock.bind(this) }> Pause Timer </Button>
+        </div>
+        <div className="timerMSGBlock">
+          <p className={ this.state.isActive ? "timerMSG" : "hide" }>{ this.state.working ? "Let's Get To Work!" : "Time For A Break!"}</p>
         </div>
       </div>
     )

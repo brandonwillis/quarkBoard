@@ -2,13 +2,19 @@ html, body {
   height: 100% !important;
   width: 100% !important;
   overflow: hidden;
+  font-family: 'Montserrat', sans-serif !important;
 }
+
+/*p, a, button, h2 {
+  font-family: 'Montserrat', sans-serif !important;
+}*/
 
 /** Header **/
 .headerStyle {
   text-align: center;
   color: #ffb600;
   font-size: 64px;
+  font-family: 'Oleo Script', cursive !important;
 }
 
 .headerParent {
@@ -24,6 +30,7 @@ html, body {
 
 .compHeader {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /** quarkBody **/
@@ -59,7 +66,7 @@ html, body {
   text-align: left;
 }
 
-.clock h3 {
+.clockTime {
   font-size: 110px;
   color: white;
 }
@@ -76,12 +83,13 @@ html, body {
   position: absolute;
   width: 380px;
   height: 440px;
-  border: 1px solid #d5d5d5;
+  border: 1px solid black;
   border-radius: 10px;
   text-align: center;
   padding: 5px 20px 20px 20px;
   margin-top: 30px;
   left: 50%;
+  bottom: 8%;
   transform: translateX(-50%);
   background: url('../src/images/background/pomodoro.jpg');
   background-size: cover;
@@ -89,7 +97,7 @@ html, body {
 
 .time p {
   font-size: 70px;
-  margin-top: 65px;
+  margin-top: 60px;
   color: white;
 }
 
@@ -99,12 +107,24 @@ html, body {
 
 .timerHeader {
   font-size: 34px;
-  /*margin-top: 20px;*/
   font-weight: bolder;
 }
 
 .timerMSG {
-  font-size: 18px;
+  font-size: 28px;
+}
+
+.timerMSGBlock {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  height: 40px;
+}
+
+.timerGroup {
+  margin-top: 30px;
+  padding: 0px 20px;
 }
 
 /** Weather **/
@@ -123,13 +143,14 @@ html, body {
 }
 
 .weatherLeft {
-  flex: 0 0 40%;
+  width: 40%;
 }
 
 .weatherRight{
   text-align: left;
   margin-top: -10px;
-  margin-left: 10px;
+  padding: 10px 0px 0px 15px;
+  width: 60%;
 }
 
 .weatherBlock {
@@ -138,11 +159,15 @@ html, body {
   float: left;
   height: 140px;
   width: 100%;
-  max-width: 400px;
+  max-width: 380px;
   margin: 3.5%;
 }
 
 /** Buttons **/
+button:focus {
+  outline:0 !important;
+}
+
 .rightButton {
   position: absolute;
   right: 15px;
@@ -164,6 +189,7 @@ html, body {
   color: black;
   border: none;
   border-radius: 50% !important;
+  margin-top: -8px;
 }
 
 .deleteBtn:hover {
@@ -186,7 +212,19 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 24px;
+}
+
+.timerBtnGroup {
+  width: 110px;
+}
+
+.startBtn {
+  margin-right: 5px;
+}
+
+.stopBtn {
+  margin-right: 10px;
 }
 
 .signOutBtn:hover {
@@ -229,7 +267,6 @@ html, body {
 }
 
 /** Notepad **/
-
 .noteBlock {
   background-color: white;
   width: 30%;
@@ -244,7 +281,7 @@ html, body {
 }
 
 .noteList {
-  max-height: 365px;
+  max-height: 350px;
   overflow: auto;
   margin-bottom: 0px !important;
 }
@@ -252,12 +289,18 @@ html, body {
 .noteHeaderBlock {
   position: relative;
   border-bottom: 1px solid #91e6db;
+  cursor: pointer;
 }
 
 li.noteListItem {
+  cursor: pointer;
   border: 0 none;
   border-top: 1px solid #91e6db !important;
   padding-left: 20px;
+}
+
+.noteListItem.list-group-item:first-child {
+  border: none !important;
 }
 
 .addNote {
@@ -279,6 +322,7 @@ li.noteListItem {
   text-align: left;
   padding-left: 40px;
   font-size: 28px;
+  font-weight: bold;
 }
 
 .noteShowBtnGroup {
@@ -290,7 +334,7 @@ li.noteListItem {
   text-align: right;
   position: absolute;
   right: 25px;
-  top: 10px;
+  top: 14px;
   font-size: 16px;
 }
 
@@ -310,6 +354,10 @@ li.noteListItem {
 
 li.goalListItem {
   background-color: #FFFFA5 !important;
+}
+
+.goalListItem.list-group-item:first-child {
+  border-radius: 0px;
 }
 
 .addGoal {
@@ -344,6 +392,7 @@ li.goalListItem {
 
 .goalParent {
   position: relative;
+  cursor: pointer;
 }
 
 .weekRadio {

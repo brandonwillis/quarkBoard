@@ -34,7 +34,7 @@ class SignIn extends Component {
             </div>
           </div>
           <div className="authBtnGroup">
-            <button type="submit" className="btn btn-primary leftButton">Sign In</button>
+            <button type="submit" className="btn btn-primary">Sign In</button>
             <Link to="signup" className="btn btn-danger rightButton">Sign Up</Link>
           </div>
         </form>

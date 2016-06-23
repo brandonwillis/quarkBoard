@@ -13,17 +13,15 @@ class Weather extends Component {
     const weatherIcon = this.props.currWeather.weather[0].icon;
 
     return (
-        // <div className="weatherBlock">
-          <div className="weatherWrapper">
-            <div className="weatherLeft">
-              <img className="wi" src={'./src/images/weather-icons/' + weatherIcon + '.svg'} />
-            </div>
-            <div className="weatherRight">
-              <span><h1>{this.props.currWeather.name}</h1></span>
-              <span className="temp-number"><h1>{tempConverter(this.props.currWeather.main.temp)}</h1></span>
-            </div>
+        <div className="weatherWrapper">
+          <div className="weatherLeft">
+            <img className="wi" src={'./src/images/weather-icons/' + weatherIcon + '.svg'} />
           </div>
-        // </div>
+          <div className="weatherRight">
+            <span><h2>{this.props.currWeather.name}</h2></span>
+            <span className="temp-number"><h2>{tempConverter(this.props.currWeather.main.temp)}</h2></span>
+          </div>
+        </div>
     )
   }
 
