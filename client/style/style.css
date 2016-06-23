@@ -1,0 +1,435 @@
+html, body {
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+textarea {
+  min-height: 100px !important;
+}
+
+/** Header **/
+.headerStyle {
+  text-align: center;
+  color: #ffb600;
+  font-size: 70px;
+  font-family: 'Oleo Script', cursive !important;
+  margin: 0;
+}
+
+.headerParent {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background: #661118;
+  border-bottom: 5px solid #ffb600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.compHeader {
+  text-align: center;
+}
+
+.authHeader {
+  text-align: center;
+  color: #ffb600;
+  font-size: 36px;
+}
+
+/** quarkBody **/
+.quarkBody {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0px !important;
+  background-color: white;
+  position: relative;
+}
+
+/** Sign In/Up **/
+.authBlock {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 85px;
+  position: relative;
+  border: 1px solid black;
+  background-color: #661118;
+  border-radius: 25px;
+  padding: 30px;
+}
+
+.authBlock label {
+  color: #ffb600;
+}
+
+.authBtnGroup {
+  padding: 15px;
+}
+
+.authBtnGroup .btn {
+  width: 80px;
+}
+
+.text-help {
+  color: black;
+}
+
+.authError {
+  color: white;
+}
+
+/** Clock **/
+.clockTime {
+  font-size: 120px;
+  color: white;
+}
+
+.clockBlock {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3%;
+}
+
+/** Timer **/
+.timerBlock {
+  position: absolute;
+  width: 380px;
+  height: 440px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px 20px 20px 20px;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  background: url('../src/images/background/pomodoro.jpg');
+  background-size: cover;
+}
+
+.time p {
+  font-size: 70px;
+  margin-top: 85px;
+  color: white;
+}
+
+.timerWords {
+  font-size: 12px;
+}
+
+.timerHeader {
+  font-size: 24px;
+  font-weight: bolder;
+  margin-top: -9px;
+}
+
+.timerMSG {
+  font-size: 28px;
+}
+
+.timerMSGBlock {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  height: 40px;
+}
+
+.timerGroup {
+  margin-top: 30px;
+  padding: 0px 20px;
+}
+
+/** Weather **/
+.wi {
+  height: 120px;
+  margin-top: 4px;
+}
+
+.weatherWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.weatherLeft {
+  width: 40%;
+}
+
+.weatherRight{
+  text-align: left;
+  margin-top: -10px;
+  padding: 10px 0px 0px 15px;
+  width: 60%;
+}
+
+.weatherBlock {
+  text-align: center;
+  position: relative;
+  float: left;
+  height: 140px;
+  width: 100%;
+  max-width: 380px;
+  margin: 3.5%;
+}
+
+/** Buttons **/
+button:focus {
+  outline:0 !important;
+}
+
+.rightButton {
+  position: absolute;
+  right: 15px;
+}
+
+.leftButton {
+  margin-left: 15px;
+}
+
+.weatherButton {
+  margin: 50px;
+  width: 180px;
+  height: 70px;
+  font-size: 18px !important;
+  border-color: #2e6da4 !important;
+}
+
+.deleteBtn {
+  background-color: rgba(232, 227, 227, 0.64) !important;
+  color: black;
+  border: none;
+  border-radius: 50% !important;
+  margin-top: -8px;
+}
+
+.deleteBtn:hover {
+  background-color: rgba(220, 220, 220, 0.66) !important;
+  color: black;
+}
+
+.submitBtn {
+  margin-right: 40px;
+  width: 120px;
+}
+
+.signOutBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 160px;
+  height: 95px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.signOutBtn a:focus {
+  color: #ffb600;
+  text-decoration: none;
+}
+
+.timerBtnGroup {
+  width: 110px;
+}
+
+.startBtn {
+  margin-right: 5px;
+}
+
+.stopBtn {
+  margin-right: 10px;
+}
+
+.signOutBtn:hover {
+  background-color: rgba(95, 6, 6, 0.65);
+}
+
+.signUpBtn {
+  position: absolute;
+  right: 45px;
+}
+
+.signOutBtn a {
+  color: #ffb600;
+}
+
+.signOutBtn a:hover {
+  color: #ffb600;
+  text-decoration: none;
+}
+
+/** Dashboard **/
+.dashBoardBody {
+  background: url('../src/images/background/quarkBoard.jpg');
+  background-size: cover;
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bottomBlock {
+  height: 450px;
+  width: 100%;
+}
+
+/** Notepad **/
+.noteBlock {
+  background-color: white;
+  width: 30%;
+  float: right;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+}
+
+.noteList {
+  max-height: 365px;
+  overflow: auto;
+  margin-bottom: 0px !important;
+}
+
+.noteHeaderBlock {
+  position: relative;
+  border-bottom: 1px solid #91e6db;
+  cursor: pointer;
+}
+
+li.noteListItem {
+  cursor: pointer;
+  border: 0 none;
+  border-top: 1px solid #91e6db !important;
+  padding-left: 20px;
+}
+
+.noteListItem.list-group-item:first-child {
+  border: none !important;
+}
+
+.addNote {
+  padding: 0px 20px;
+  height: 345px;
+}
+
+.noteListItem h3 {
+  font-size:18px;
+  font-weight: bold;
+}
+
+.noteShowBox {
+  height: 350px;
+}
+
+.noteShowHead {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.noteShowTitle {
+  text-align: left;
+  padding-left: 40px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.noteShowBtnGroup {
+  margin-top: 15px;
+  height: 30px;
+}
+
+.noteIndexDate {
+  text-align: right;
+  position: absolute;
+  right: 15px;
+  font-size: 14px;
+  top: 10px;
+}
+
+.noteShowDate {
+  text-align: right;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  font-size: 14px;
+}
+
+.noteShowContent {
+  padding: 15px 40px;
+  overflow: auto;
+  max-height: 254px;
+  font-size: 14px;
+}
+
+/** Goals **/
+.goalList {
+  max-height: 275px;
+  overflow: auto;
+  margin-bottom: 0px !important;
+}
+
+.goalList h4{
+  text-size: 15px;
+  font-weight: bold;
+}
+
+li.goalListItem {
+  background-color: #FFFFA5 !important;
+}
+
+.goalListItem.list-group-item:first-child {
+  border-radius: 0px;
+}
+
+.addGoal {
+  padding: 0px 20px;
+  height: 310px;
+}
+
+.goalBlock {
+  background-color: #FFFFA5;
+  width: 26%;
+  float: left;
+  border: 1px solid;
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+}
+
+.goalBtn {
+  width: 50%;
+  height: 45px;
+  background-color: #FFFFA5 !important;
+  border: none !important;
+  font-size: 16px !important;
+}
+
+.goalBtn:hover {
+  background-color: rgba(215, 224, 154, 0.54) !important;
+}
+
+.addBtnGroup {
+  padding: 15px;
+}
+
+.goalParent {
+  position: relative;
+  cursor: pointer;
+}
+
+.weekRadio {
+  padding: 5px 20px;
+}
