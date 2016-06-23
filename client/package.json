@@ -1,11 +1,11 @@
 {
-  "name": "QuarkBoard Client",
+  "name": "quarkboardclient",
   "version": "1.0.0",
   "description": "Simple productivity web app",
   "main": "index.js",
   "repository": "https://github.com/brandonwillis/quarkBoard",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "author": "Brandon Willis",
   "license": "MIT",
