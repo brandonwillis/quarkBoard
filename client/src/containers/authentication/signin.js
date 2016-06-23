@@ -16,26 +16,26 @@ class SignIn extends Component {
     const { fields: { username, password }, handleSubmit } = this.props;
 
     return (
-      <div className="signInBlock">
+      <div className="authBlock">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <h3 className="compHeader">Sign In</h3>
+          <p className="authHeader">Sign In</p>
           <div className={`form-group ${username.touched && username.invalid ? "has-danger" : '' }`}>
             <label>Username</label>
             <input type="text" className="form-control" {...username} />
             <div className="text-help">
-              {username.touched ? username.error : ""}
+              <p>{username.touched ? username.error : ""}</p>
             </div>
           </div>
           <div className={`form-group ${password.touched && password.invalid ? "has-danger" : '' }`}>
             <label>Password</label>
             <input type="password" className="form-control" {...password} />
             <div className="text-help">
-              {password.touched ? password.error : ""}
+              <p>{password.touched ? password.error : ""}</p>
             </div>
           </div>
           <div className="authBtnGroup">
             <button type="submit" className="btn btn-primary">Sign In</button>
-            <Link to="signup" className="btn btn-danger rightButton">Sign Up</Link>
+            <Link to="signup" className="btn btn-danger signUpBtn">Sign Up</Link>
           </div>
         </form>
       </div>

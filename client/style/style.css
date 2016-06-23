@@ -5,10 +5,9 @@ html, body {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-/*p, a, button, h2 {
-  font-family: 'Montserrat', sans-serif !important;
-}*/
-
+label {
+  color: #ffb600;
+}
 /** Header **/
 .headerStyle {
   text-align: center;
@@ -30,7 +29,12 @@ html, body {
 
 .compHeader {
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+}
+
+.authHeader {
+  text-align: center;
+  color: #ffb600;
+  font-size: 36px;
 }
 
 /** quarkBody **/
@@ -43,22 +47,23 @@ html, body {
 }
 
 /** Sign In/Up **/
-.signInBlock {
+.authBlock {
   max-width: 500px;
   margin: auto;
-  margin-top: 110px;
+  margin-top: 85px;
   position: relative;
-}
-
-.signUpBlock {
-  max-width: 500px;
-  margin: auto;
-  margin-top: 110px;
-  position: relative;
+  border: 1px solid black;
+  background-color: #661118;
+  border-radius: 25px;
+  padding: 30px;
 }
 
 .authBtnGroup {
   padding: 15px;
+}
+
+.text-help {
+  color: white;
 }
 
 /** Clock **/
@@ -229,6 +234,11 @@ button:focus {
 
 .signOutBtn:hover {
   background-color: rgba(95, 6, 6, 0.65);
+}
+
+.signUpBtn {
+  position: absolute;
+  right: 45px;
 }
 
 .signOutBtn a {

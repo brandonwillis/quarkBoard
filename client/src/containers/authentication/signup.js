@@ -16,28 +16,28 @@ class SignUp extends Component {
     const { fields: { username, email, password, confirmPassword}, handleSubmit } = this.props;
 
     return (
-      <div className="signUpBlock">
+      <div className="authBlock">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <h3 className="compHeader">Sign Up</h3>
+          <p className="authHeader">Sign Up</p>
           <div className={`form-group ${username.touched && username.invalid ? "has-danger" : '' }`}>
             <label>Username</label>
             <input type="text" className="form-control" {...username} />
             <div className="text-help">
-              {username.touched ? username.error : ""}
+              <p>{username.touched ? username.error : ""}</p>
             </div>
           </div>
           <div className={`form-group ${email.touched && email.invalid ? "has-danger" : '' }`}>
             <label>Email Address</label>
             <input type="text" className="form-control" {...email} />
             <div className="text-help">
-              {email.touched ? email.error : ""}
+              <p>{email.touched ? email.error : ""}</p>
             </div>
           </div>
           <div className={`form-group ${password.touched && password.invalid ? "has-danger" : '' }`}>
             <label>Password</label>
             <input type="password" className="form-control" {...password} />
             <div className="text-help">
-              {password.touched ? password.error : ""}
+              <p>{password.touched ? password.error : ""}</p>
             </div>
           </div>
           <div className={`form-group ${confirmPassword.touched && confirmPassword.invalid ? "has-danger" : '' }`}>
@@ -48,8 +48,8 @@ class SignUp extends Component {
             </div>
           </div>
           <div className="authBtnGroup">
-            <Link to="/" className="btn btn-danger leftButton">Cancel</Link>
-            <button type="submit" className="btn btn-primary rightButton">Sign Up</button>
+            <Link to="/" className="btn btn-danger">Cancel</Link>
+            <button type="submit" className="btn btn-primary signUpBtn">Sign Up</button>
           </div>
         </form>
       </div>

@@ -9,7 +9,6 @@ exports.fetchGoals = function(req, res) {
 
     Goal.find({'_id': { $in: userGoals }}, function(err, result) {
       if(err) { return err }
-      console.log("fetch :", result);
       res.send({ goals: result})
     })
   });

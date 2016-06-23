@@ -6,7 +6,9 @@ import { Button } from 'react-bootstrap';
 
 class GoalIndex extends Component {
   componentWillMount() {
+    console.log("Goal component mounted", this.props)
     if(this.props.uid !== null){
+      console.log("Not null ", this.props)
       this.props.goalsFetch(this.props.uid);
     }
   }
