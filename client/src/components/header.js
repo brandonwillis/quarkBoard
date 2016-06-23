@@ -7,16 +7,17 @@ class Header extends Component {
   authButton(){
     if (this.props.auth.isAuth) {
       return (
-        <div className="signOutBtn" onClick={() => this.props.signOut()}>
+        <div className="signOutBtn" onClick={ () => this.props.signOut() }>
           <Link to="/">Sign Out</Link>
         </div>
-      )
+      );
     }
+
     return (
       <div className="signOutBtn">
         <Link to="/">Sign In</Link>
       </div>
-    )
+    );
   }
 
   render() {
@@ -24,7 +25,7 @@ class Header extends Component {
       <div className="headerParent">
         <p className="headerStyle">QuarkBoard</p>
         <div className="signOutBtn">
-          {this.authButton()}
+          { this.authButton() }
         </div>
       </div>
     )
@@ -32,7 +33,7 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-  return { auth: state.auth }
+  return { auth: state.auth };
 }
 
 export default connect(mapStateToProps, actions)(Header);

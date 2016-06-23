@@ -11,13 +11,14 @@ const appReducer = combineReducers({
   weather: WeatherReducer,
   goals: GoalsReducer,
   form: formReducer
-})
+});
 
 const rootReducer = ( state, action ) => {
   if(action.type === "UNAUTH_USER") {
     state = undefined
   }
-  return appReducer(state, action)
-}
+
+  return appReducer(state, action);
+};
 
 export default rootReducer;

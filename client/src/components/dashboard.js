@@ -17,4 +17,4 @@ export default class Dashboard extends Component {
       </div>
     );
   }
-}
+};

@@ -4,9 +4,7 @@ class Clock extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      time: (new Date()).toLocaleTimeString()
-    };
+    this.state = { time: (new Date()).toLocaleTimeString() };
 
     this.updateTime = this.updateTime.bind(this);
   }
@@ -20,14 +18,15 @@ class Clock extends Component {
   }
 
   updateTime() {
-    let currentDate = (new Date()).toLocaleTimeString();
+    const currentDate = (new Date()).toLocaleTimeString();
+
     this.setState({ time: currentDate });
   }
 
   render() {
    return (
      <div className="clockBlock">
-       <p className="clockTime">{this.state.time}</p>
+       <p className="clockTime">{ this.state.time }</p>
      </div>
    );
  }

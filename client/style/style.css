@@ -76,6 +76,10 @@ textarea {
   color: black;
 }
 
+.authError {
+  color: white;
+}
+
 /** Clock **/
 .clockTime {
   font-size: 120px;
@@ -266,9 +270,6 @@ button:focus {
 .dashBoardBody {
   background: url('../src/images/background/quarkBoard.jpg');
   background-size: cover;
-}
-
-.fullscreen {
   position: absolute;
   top: 100px;
   bottom: 0;

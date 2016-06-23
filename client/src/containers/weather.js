@@ -2,37 +2,39 @@ import React, { Component } from 'react';
 import { getGeolocation, fetchWeather } from '../actions/index';
 import { connect } from 'react-redux';
 import { tempConverter } from '../helpers/helperfunctions';
+import { Button } from 'react-bootstrap';
 
 class Weather extends Component {
-
   weatherInfo(){
-    if (this.props.currWeather === null) {
-      return <button className="btn btn-primary weatherButton" onClick={() => this.props.getGeolocation()}>Get Weather</button>
+    const { currWeather } = this.props;
+
+    if (currWeather === null) {
+      return <Button className="btn btn-primary weatherButton" onClick={ () => this.props.getGeolocation() }>Get Weather</Button>
     }
-    
-    const weatherIcon = this.props.currWeather.weather[0].icon;
+
+    const weatherIcon = currWeather.weather[0].icon;
 
     return (
-        <div className="weatherWrapper">
-          <div className="weatherLeft">
-            <img className="wi" src={'./src/images/weather-icons/' + weatherIcon + '.svg'} />
-          </div>
-          <div className="weatherRight">
-            <span><h2>{this.props.currWeather.name}</h2></span>
-            <span className="temp-number"><h2>{tempConverter(this.props.currWeather.main.temp)}</h2></span>
-          </div>
+      <div className="weatherWrapper">
+        <div className="weatherLeft">
+          <img className="wi" src={'./src/images/weather-icons/' + weatherIcon + '.svg'} />
         </div>
-    )
+        <div className="weatherRight">
+          <span><h2>{ currWeather.name }</h2></span>
+          <span className="temp-number"><h2>{ tempConverter(currWeather.main.temp) }</h2></span>
+        </div>
+      </div>
+    );
   }
 
   render(){
     return (
       <div className="weatherBlock">
-        {this.weatherInfo()}
+        { this.weatherInfo() }
       </div>
-    )
+    );
   }
-}
+};
 
 function mapStateToProps(state) {
   return { currWeather: state.weather.currWeather };

@@ -1,3 +1,5 @@
 **/node_modules
-**/config.js
 **/bundle.js
+
+/server/config.js
+/client/config.js

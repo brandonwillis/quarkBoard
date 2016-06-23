@@ -16,8 +16,9 @@ class GoalIndex extends Component {
   }
 
   deleteGoal(goalId) {
-    const uid = this.props.uid;
+    const { uid } = this.props;
     const gid = goalId;
+
     this.props.goalDelete({ uid, gid });
   }
 
@@ -26,10 +27,10 @@ class GoalIndex extends Component {
       .filter((goal) => goal.dueDate === type)
         .map((goal) => {
         return (
-          <li className="list-group-item goalListItem" key={goal._id}>
+          <li className="list-group-item goalListItem" key={ goal._id }>
             <div>
-              <Button className="btn deleteBtn rightButton" onClick={this.deleteGoal.bind(this, goal._id)}>X</Button>
-              <h4>{goal.goal}</h4>
+              <Button className="btn deleteBtn rightButton" onClick={ this.deleteGoal.bind(this, goal._id) }>X</Button>
+              <h4>{ goal.goal }</h4>
             </div>
           </li>
         );
@@ -39,18 +40,18 @@ class GoalIndex extends Component {
   render() {
     return (
       <div>
-          <Button className="btn goalBtn" onClick={this.toggleComp.bind(this, "today")}>Today</Button>
-          <Button className="btn goalBtn" onClick={this.toggleComp.bind(this, "week")}>This Week</Button>
+          <Button className="btn goalBtn" onClick={ this.toggleComp.bind(this, "today") }>Today</Button>
+          <Button className="btn goalBtn" onClick={ this.toggleComp.bind(this, "week") }>This Week</Button>
         <ul className="list-group goalList">
-          {this.renderGoals(this.props.display)}
+          { this.renderGoals(this.props.display) }
         </ul>
       </div>
     )
   }
-}
+};
 
 function mapStateToProps(state) {
-  return { goals: state.goals.all , display: state.goals.display, uid: state.auth.uid }
+  return { goals: state.goals.all , display: state.goals.display, uid: state.auth.uid };
 }
 
-export default connect(mapStateToProps, { goalsFetch, goalToggle, goalDelete })(GoalIndex)
+export default connect(mapStateToProps, { goalsFetch, goalToggle, goalDelete })(GoalIndex);

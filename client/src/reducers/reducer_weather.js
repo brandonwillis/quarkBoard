@@ -5,8 +5,7 @@ const INITIAL_STATE = { currWeather: null }
 export default function (state = INITIAL_STATE , action) {
   switch (action.type) {
     case WEATHER_FETCH:
-      console.log("weather fetch: action payload ", action.payload)
-      return { ...state, currWeather: action.payload }
+      return { ...state, currWeather: action.payload };
     default:
       return state;
   }
