@@ -146,26 +146,26 @@ textarea {
 .wi {
   height: 120px;
   margin-top: 4px;
+  max-width: 150px;
 }
 
 .weatherWrapper {
   display: flex;
   flex-wrap: wrap;
-  background-color: white;
+  background-color: rgba(255,255,255, .8);
   border: 1px solid;
   border-radius: 25px;
   padding: 20px;
-}
-
-.weatherLeft {
-  width: 40%;
 }
 
 .weatherRight{
   text-align: left;
   margin-top: -10px;
   padding: 10px 0px 0px 15px;
-  width: 60%;
+}
+
+.weatherRight h2 {
+  font-size: 26px;
 }
 
 .weatherBlock {
@@ -173,8 +173,6 @@ textarea {
   position: relative;
   float: left;
   height: 140px;
-  width: 100%;
-  max-width: 380px;
   margin: 3.5%;
 }
 

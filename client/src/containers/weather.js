@@ -16,9 +16,7 @@ class Weather extends Component {
 
     return (
       <div className="weatherWrapper">
-        <div className="weatherLeft">
-          <img className="wi" src={'./src/images/weather-icons/' + weatherIcon + '.svg'} />
-        </div>
+        <img className="wi" src={'./src/images/weather-icons/' + weatherIcon + '.svg'} />
         <div className="weatherRight">
           <span><h2>{ currWeather.name }</h2></span>
           <span className="temp-number"><h2>{ tempConverter(currWeather.main.temp) }</h2></span>
