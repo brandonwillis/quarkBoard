@@ -146,6 +146,7 @@ textarea {
 .wi {
   height: 120px;
   margin-top: 4px;
+  max-width: 150px;
 }
 
 .weatherWrapper {
@@ -161,6 +162,10 @@ textarea {
   text-align: left;
   margin-top: -10px;
   padding: 10px 0px 0px 15px;
+}
+
+.weatherRight h2 {
+  font-size: 26px;
 }
 
 .weatherBlock {
